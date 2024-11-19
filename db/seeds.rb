@@ -175,4 +175,4 @@ place13 = Place.create(address: "1 Civic Plz NW, Albuquerque, NM 87102, États-U
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022685/BreakingBad1_re6ofx.jpg").open
 place13.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
 
-puts "seeding finished !"
+puts "seeding finished !  "
