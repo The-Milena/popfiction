@@ -1,7 +1,8 @@
 class Place < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  validates :address, :beds, :price, :picture, presence: true
+  has_many_attached :photos
+  validates :address, :beds, :price, presence: true
   validates :address, uniqueness: true
   validates :beds, numericality: { greater_than: 0 }
   validates :beds, numericality: { only_integer: true }
