@@ -1,7 +1,10 @@
 class BookingsController < ApplicationController
 
   def show
+    @place = Place.find(params[:place_id])
     @booking = Booking.find(params[:id])
+    @booking.place = @place
+    @booking.save
   end
 
   def new
@@ -10,7 +13,11 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @place = Place.find(params[:place_id])
     @booking = Booking.new(booking_params)
+    @booking.place = @place
+    @booking.save
+    redirect_to places_path(@place)
   end
 
   private
