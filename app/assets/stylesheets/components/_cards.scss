@@ -1,0 +1,20 @@
+/* Styles pour uniformiser les tailles des cartes */
+
+.card-fixed {
+  height: 380px; /* Hauteur totale des cartes */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.img-fixed {
+  height: 200px; /* Hauteur fixe pour toutes les images */
+  object-fit: cover; /* Assure que l'image reste proportionnelle */
+  border-radius: 10px 10px 0 0; /* Ajoute un arrondi pour les bords supérieurs */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente */
+  border-radius: 50%; /* Boutons arrondis */
+}
