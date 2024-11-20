@@ -11,6 +11,7 @@ class PlacesController < ApplicationController
 
   # Affiche une place spécifique
   def show
+    @booking = Booking.new
   end
 
   # Affiche le formulaire pour créer une nouvelle place
