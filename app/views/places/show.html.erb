@@ -41,6 +41,11 @@
 
           <!-- Bouton pour réserver -->
           <%= link_to "Reserve Now", new_place_booking_path(@place), class: "btn btn-primary w-100 mt-3" %>
+
+          <!-- Bouton pour modifier la place -->
+          <% if current_user == @place.user %>
+            <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-secondary w-100 mt-3" %>
+          <% end %>
         </div>
       </div>
     </div>
