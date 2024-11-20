@@ -26,13 +26,14 @@
           <!-- Détails de la carte -->
           <div class="card-body">
             <h5 class="card-title text-truncate">
+              <h4><%= link_to place.name, place_path(place), class: "text-decoration-none text-dark" %></h4>
               <%= link_to place.address, place_path(place), class: "text-decoration-none text-dark" %>
             </h5>
             <p class="card-text mb-1">
-              <strong>Hôte :</strong> <%= place.user.first_name %>
+              <strong>Host :</strong> <%= place.user.first_name %>
             </p>
             <p class="card-text text-muted mb-1">
-              <%= number_to_currency(place.price, unit: "€") %> par nuit
+              <%= number_to_currency(place.price, unit: "€") %> per night
             </p>
             <%= link_to "Voir plus", place_path(place), class: "btn btn-primary mt-2" %>
           </div>
