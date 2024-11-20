@@ -1,35 +1,4 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
 
-#create_table "places", force: :cascade do |t|
-#  t.string "address"
-#  t.integer "beds"
-#  t.float "price"
-#  t.string "picture"
-#  t.bigint "user_id", null: false
-#  t.datetime "created_at", null: false
-#  t.datetime "updated_at", null: false
-#  t.index ["user_id"], name: "index_places_on_user_id"
-#end
-
-#create_table "users", force: :cascade do |t|
-#  t.string "email", default: "", null: false
-#  t.string "encrypted_password", default: "", null: false
-#  t.string "reset_password_token"
-#  t.datetime "reset_password_sent_at"
-#  t.datetime "remember_created_at"
-#  t.datetime "created_at", null: false
-#  t.datetime "updated_at", null: false
-#  t.index ["email"], name: "index_users_on_email", unique: true
-#  t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-#end
 
 Booking.destroy_all
 Place.destroy_all
@@ -37,53 +6,40 @@ User.destroy_all
 
 puts "Starting seed deployment..."
 
-#users_email = ["homer.simpson@gmail.com", "biblo.baggins@gmail.com", "peter.venkman@gmail.com" ]
-#@users_first_name = ["Homer", "Bilbo", "Peter"]
-#@users_last_name = ["Simpson", "Baggins", "Venkman"]
-#@places_address = ["742 Evergreen Terrace, Springfield, Oregon, USA", "501 Buckland Road, Matamata 3472, Nouvelle-Zélande", "14 N Moore St TriBeCa, New York, NY 10013-2413"]
-#@places_description = [
-#"Charmante maison familiale à Springfield, avec 4 chambres, salon spacieux, cuisine vintage et jardin accueillant. Idéale pour des vacances fun en famille !",
-#"Charmante maison troglodyte à Hobbiton, avec 1 chambre cosy, un salon confortable, une cuisine rustique et un jardin verdoyant. Idéale pour une retraite paisible au cœur de la Terre du Milieu, à deux pas des paysages enchanteurs et des sentiers de randonnée !",
-#"Ancienne caserne de pompiers à New York, transformée en quartier général des Ghostbusters. Espaces spacieux, décor unique, et équipements modernes. Parfait pour les amateurs de paranormal et les aventuriers urbains !"
-#]
-#
-#@index = 0
-#
-#users_email.each do |user_email|
-#  user = User.new
-#  user.email = user_email
-#  user.first_name = @users_first_name[@index]
-#  user.last_name = @users_last_name[@index]
-#  user.password = "totototo"
-#  user.save!
-#  place = Place.new
-#  place.address = @places_address[@index]
-#  place.beds = rand(1..5)
-#  place.price = rand(50..5000)
-#  place.description = @places_description[@index]
-#  place.user_id = user.id
-#  place.save!
-#  @index += 1
-#end
+user1 = User.create(first_name:"Homer", last_name:"Simpson", email:"homer.simpson@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113961/simpsons-live_q9wvpo.jpg").open
+user1.photo.attach(io: file, filename: "Homer.png", content_type: "image/png")
+user2 = User.create(first_name:"Bilbo", last_name: "Baggins", email:"biblo.baggins@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/62d44a90-b227-11ea-affe-a1470b404b35_lzsvoy.jpg").open
+user2.photo.attach(io: file, filename: "Bilbo.png", content_type: "image/png")
+user3 = User.create(first_name:"Peter", last_name: "Venkman", email:"peter.venkman@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/Peter_hac347.png").open
+user3.photo.attach(io: file, filename: "Peter.png", content_type: "image/png")
+user4 = User.create(first_name:"Gomez", last_name: "Addams", email:"gomez.addams@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/gomez_q3qol7.jpg").open
+user4.photo.attach(io: file, filename: "Gomez.png", content_type: "image/png")
+user5 = User.create(first_name:"Cendrillon", last_name:"Princess", email:"cendrillon@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/cendrillon-250_gee42a.jpg").open
+user5.photo.attach(io: file, filename: "Cendrillon.png", content_type: "image/png")
+user6 = User.create(first_name:"Barbie", last_name:"Doll", email:"barbie@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/barbie_oi2xzs.png").open
+user6.photo.attach(io: file, filename: "Barbie.png", content_type: "image/png")
+user7 = User.create(first_name:"Shrek", last_name:"Ogre", email:"shrek@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/dbf6812f59e5080cf420f1056bfceb66f7d6a43a8df19ace503ea70596afc0ff_xur49k.jpg").open
+user7.photo.attach(io: file, filename: "Shrek.png", content_type: "image/png")
+user8 = User.create(first_name:"Robert", last_name: "Crawley", email:"robert.crawley@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/Robert_yxg1fz.png").open
+user8.photo.attach(io: file, filename: "Crawley.png", content_type: "image/png")
+user9 = User.create(first_name:"Albus", last_name: "Dumbledore", email:"albus.dumbledore@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/Albus_djrya8.png").open
+user9.photo.attach(io: file, filename: "Dumbledore.png", content_type: "image/png")
+user10 = User.create(first_name:"Luke", last_name: "Skywalker", email:"luke.skywalker@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/ac9c3c5403b811f2238c854185_qmfmcl.jpg").open
+user10.photo.attach(io: file, filename: "Skywalker.png", content_type: "image/png")
+user11 = User.create(first_name:"Walter", last_name: "White", email:"walter.white@gmail.com", password:"popfiction")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/b51190101362045.5f1d68546ac50_dclxph.jpg").open
+user11.photo.attach(io: file, filename: "Walter.png", content_type: "image/png")
 
-
-user1 = User.create(first_name:"Homer", last_name:"Simpson", email:"homer.simpson@gmail.com", password:"totototo")
-user2 = User.create(first_name:"Bilbo", last_name: "Baggins", email:"biblo.baggins@gmail.com", password:"totototo")
-user3 = User.create(first_name:"Peter", last_name: "Venkman", email:"peter.venkman@gmail.com", password:"totototo")
-user4 = User.create(first_name:"Gomez", last_name: "Addams", email:"gomez.addams@gmail.com", password:"totototo")
-user5 = User.create(first_name:"Cendrillon", last_name:"Princess", email:"cendrillon@gmail.com", password:"totototo")
-user6 = User.create(first_name:"Barbie", last_name:"Doll", email:"barbie@gmail.com", password:"totototo")
-user7 = User.create(first_name:"Shrek", last_name:"Ogre", email:"shrek@gmail.com", password:"totototo")
-user8 = User.create(first_name:"Robert", last_name: "Crawley", email:"robert.crawley@gmail.com", password:"totototo")
-user9 = User.create(first_name:"Albus", last_name: "Dumbledore", email:"albus.dumbledore@gmail.com", password:"totototo")
-user10 = User.create(first_name:"Luke", last_name: "Skywalker", email:"luke.skywalker@gmail.com", password:"totototo")
-user11 = User.create(first_name:"Walter", last_name: "White", email:"walter.white@gmail.com", password:"totototo")
-
-
-#file = URI.parse("https://preview.redd.it/irl-simpsons-house-v0-cg4fasthv5ya1.jpeg?width=1920&format=pjpg&auto=webp&s=395f2a53aab9b262211b71742ecad4f5656d5365").open
-#list = Place.create(address: "742 Evergreen Terrace, Springfield, Oregon, USA", beds: 4, price:273, user_id: 3, description:"Charmante maison familiale à Springfield, avec 4 chambres, salon spacieux, cuisine vintage et jardin accueillant. Idéale pour des vacances fun en famille !" )
-#list.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-#
 ##Simpson
 place1 = Place.create(name: "Simpsons' house", address: "742 Evergreen Terrace, Springfield, Oregon, USA", beds: 4, price:27389 , user: user1, description:"Charmante maison familiale à Springfield, avec 4 chambres, salon spacieux, cuisine vintage et jardin accueillant. Idéale pour des vacances fun en famille !" )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022767/Simpson1_we1tla.png").open
@@ -167,7 +123,7 @@ place11.photos.attach(io: file, filename: "luke2.png", content_type: "image/png"
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022688/Luke3_f2ltsr.jpg").open
 place11.photos.attach(io: file, filename: "luke3.png", content_type: "image/png")
 #BreakingBad
-place12 = Place.create(name: "Walker's trailor", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:184, user: user11, description:"Caravane vintage et authentique, avec espace cosy, cuisine équipée et vue désertique. Activité découverte de la chimie disponible pour une expérience unique. Parfaite pour les amateurs d'aventure et de science !")
+place12 = Place.create(name: "Walter's trailor", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:184, user: user11, description:"Caravane vintage et authentique, avec espace cosy, cuisine équipée et vue désertique. Activité découverte de la chimie disponible pour une expérience unique. Parfaite pour les amateurs d'aventure et de science !")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022685/BreakingBad1_re6ofx.jpg").open
 place12.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
 
