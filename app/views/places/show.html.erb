@@ -38,7 +38,6 @@
 
           <!-- Bouton pour réserver -->
           <div data-controller="toggle" class="mt-5">
-            <button class="btn btn-outline-primary">Book this place now!</button>
            <%#  <%= render "form", booking: @booking, place: @place%>
            <%= simple_form_for [@place, @booking] do |f| %>
              <%= f.input :date_start,
@@ -83,13 +82,11 @@
               <td><%= booking.date_start.strftime('%d %b %Y') %></td>
               <td><%= booking.date_end.strftime('%d %b %Y') %></td>
               <td><%= booking.nb_of_guests %></td>
-
               <td><%= link_to "Edit", edit_booking_path(booking)%></td>
+              <td><%= link_to "X", booking_path(booking),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: "m-2 text-black text-decoration-none"%></td>
 
-           <td><%= link_to "X", booking_path(booking),
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: "m-2 text-black text-decoration-none"%></td>
-             
             </tr>
           <% end %>
         </tbody>
