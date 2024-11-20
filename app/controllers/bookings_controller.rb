@@ -21,10 +21,19 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to places_path(@place)
     else
-      Rails.logger.debug { "Rental save failed: #{@booking.errors.full_messages}" } 
-      flash[:alert] = "Erreur : #{@booking.errors.full_messages.join(', ')}"
       render "places/show", status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    @booking.save
+    redirect_to places_path(@place)
   end
 
   def destroy

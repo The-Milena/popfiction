@@ -83,6 +83,9 @@
               <td><%= booking.date_start.strftime('%d %b %Y') %></td>
               <td><%= booking.date_end.strftime('%d %b %Y') %></td>
               <td><%= booking.nb_of_guests %></td>
+
+              <td><%= link_to "Edit", edit_booking_path(booking)%></td>
+
            <td><%= link_to "X", booking_path(booking),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
             class: "m-2 text-black text-decoration-none"%></td>
