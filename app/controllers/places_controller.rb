@@ -67,6 +67,6 @@ class PlacesController < ApplicationController
 
   # Permet uniquement certains paramètres pour la sécurité
   def place_params
-    params.require(:place).permit(:address, :beds, :price, :description, :photos)
+    params.require(:place).permit(:address, :beds, :price, :description, photos: [])
   end
 end
