@@ -1,7 +1,19 @@
-<%= simple_form_for(@place) do |f| %>
-  <%= f.input :address %>
-  <%= f.input :beds %>
-  <%= f.input :price %>
-  <%= f.input :photos, as: :file %> 
-  <%= f.submit "Submit",  class: "btn btn-primary"%>
+<% if @place.errors.any? %>
+  <div class="alert alert-danger">
+    <h4>Errors:</h4>
+    <ul>
+      <% @place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= simple_form_for(@place, html: { multipart: true }) do |f| %>
+  <%= f.input :address, label: "Address" %>
+  <%= f.input :beds, label: "Number of Beds", input_html: { type: "number" } %>
+  <%= f.input :price, label: "Price (€)", input_html: { step: 0.01 } %>
+  <%= f.input :description, label: "Description", as: :text, input_html: { rows: 5, placeholder: "Provide a detailed description of at least 120 characters." } %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit "Submit", class: "btn btn-primary mt-3" %>
 <% end %>
