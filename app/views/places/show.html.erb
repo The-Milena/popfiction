@@ -40,6 +40,7 @@
           <p><strong>Description:</strong> <%= @place.description %></p>
 
           <!-- Bouton pour réserver -->
+
           <div data-controller="toggle" class="mt-5">
             <button class="btn btn-outline-primary">Book this place now!</button>
            <%#  <%= render "form", booking: @booking, place: @place%>
@@ -54,6 +55,12 @@
             <%= f.submit "Submit",  class: "btn btn-primary"%>
           <% end %>
           </div>
+
+          <!-- Bouton pour modifier la place -->
+          <% if current_user == @place.user %>
+            <%= link_to "Edit Place", edit_place_path(@place), class: "btn btn-secondary w-100 mt-3" %>
+          <% end %>
+
         </div>
       </div>
     </div>
