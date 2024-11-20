@@ -44,8 +44,13 @@ class PlacesController < ApplicationController
 
   # Supprime une place
   def destroy
-    @place.destroy
-    redirect_to places_path, notice: "Place was successfully deleted."
+    @place = Place.find(params[:id])
+    if @place.user == current_user
+      @place.destroy
+      redirect_to places_path, notice: "Place was successfully deleted."
+    else
+      redirect_to places_path, alert: "You are not authorized to delete this place."
+    end
   end
 
   private
