@@ -6,6 +6,25 @@
   justify-content: space-between;
 }
 
+.text-white {
+  color: black;
+}
+
+.dream-heading {
+  font-family: 'Playfair Display', serif; /* Police élégante */
+  font-size: 3rem; /* Taille du texte */
+  font-weight: bold; /* Gras */
+  color: #ffffff; /* Blanc pur */
+  text-align: center; /* Centrer le texte */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre légère pour la profondeur */
+  letter-spacing: 2px; /* Espacement entre les lettres */
+  line-height: 1.2; /* Hauteur de ligne ajustée */
+  margin-top: 2rem; /* Espace au-dessus */
+  margin-bottom: 2rem; /* Espace en dessous */
+}
+
+
+
 .img-fixed {
   height: 200px; /* Hauteur fixe pour toutes les images */
   object-fit: cover; /* Assure que l'image reste proportionnelle */
@@ -33,6 +52,9 @@
 #homepage {
   height: 100vh; /* 100% de la hauteur de la fenêtre */
   overflow: hidden; /* Empêche le défilement */
+  background: radial-gradient(circle, rgba(255,0,132,0.3), rgba(0,0,0,1));
+  // background: radial-gradient(circle at top, #1a1a40, #000000);
+
 }
 
 #homepage img {
@@ -48,5 +70,3 @@
   font-family: 'Arial', sans-serif;
   color: #333;
 }
-
-/* Suppression des styles globaux mal scopés */
