@@ -32,10 +32,11 @@
                          } %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Action 2</a>
               <% if user_signed_in? %>
                 <%= link_to "New place", new_place_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+                <%= link_to "Log out", user_ class: "dropdown-item" %>
               <% else %>
                 <%= link_to "Log in", new_user_session_path, class: "dropdown-item" %>
                 <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
