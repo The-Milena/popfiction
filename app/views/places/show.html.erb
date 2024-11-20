@@ -92,4 +92,5 @@
       <p>This place has been booked <%= @place.bookings.count%>.</p>
     <% end %>
   </div>
+  <%= link_to "back to places available", places_path, class: "btn btn-primary my-2" %>
 </div>
