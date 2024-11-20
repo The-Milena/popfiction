@@ -1,5 +1,4 @@
 /* Styles pour uniformiser les tailles des cartes */
-
 .card-fixed {
   height: 380px; /* Hauteur totale des cartes */
   display: flex;
@@ -18,3 +17,36 @@
   background-color: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente */
   border-radius: 50%; /* Boutons arrondis */
 }
+
+.carousel-inner {
+  border-radius: 15px; /* Ajoute un arrondi général au carrousel */
+}
+
+/* Styles globaux pour les images dans les carrousels */
+.img-fluid {
+  object-fit: cover; /* Les images remplissent leur conteneur de manière proportionnelle */
+  height: 400px; /* Hauteur uniforme pour toutes les images */
+  border-radius: 10px; /* Coins arrondis */
+}
+
+/* Scoper uniquement les styles pour la page d'accueil */
+#homepage {
+  height: 100vh; /* 100% de la hauteur de la fenêtre */
+  overflow: hidden; /* Empêche le défilement */
+}
+
+#homepage img {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+#homepage img:hover {
+  transform: scale(1.1); /* Zoom au survol */
+}
+
+#homepage h1 {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Suppression des styles globaux mal scopés */
