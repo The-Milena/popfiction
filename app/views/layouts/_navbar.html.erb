@@ -1,8 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
   <div class="container-fluid">
     <div class="div navbar-brand d-flex">
-    <a class="" href="http://127.0.0.1:3000/"><%=image_tag("pop-corn.png", alt: "Example Image")%></a>
-    <div class="fw-bold mt-2">PopFiction</div>
+      <%= link_to root_path do %>
+        <%=image_tag("pop-corn.png", alt: "Example Image")%>
+      <% end %>
+      <div class="fw-bold mt-2">PopFiction</div>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
