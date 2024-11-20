@@ -70,3 +70,16 @@
   font-family: 'Arial', sans-serif;
   color: #333;
 }
+
+#booking-form {
+  transition: height 0.3s ease, opacity 0.3s ease;
+}
+
+#booking-form.collapse.show {
+  opacity: 1;
+}
+
+#booking-form.collapse {
+  opacity: 0;
+}
+
