@@ -76,8 +76,7 @@ user7 = User.create(first_name:"Shrek", last_name:"Ogre", email:"shrek@gmail.com
 user8 = User.create(first_name:"Robert", last_name: "Crawley", email:"robert.crawley@gmail.com", password:"totototo")
 user9 = User.create(first_name:"Albus", last_name: "Dumbledore", email:"albus.dumbledore@gmail.com", password:"totototo")
 user10 = User.create(first_name:"Luke", last_name: "Skywalker", email:"luke.skywalker@gmail.com", password:"totototo")
-user11 = User.create(first_name:"Randy", last_name: "Marsh", email:"randy.marsh@gmail.com", password:"totototo")
-user12 = User.create(first_name:"Walter", last_name: "White", email:"walter.white@gmail.com", password:"totototo")
+user11 = User.create(first_name:"Walter", last_name: "White", email:"walter.white@gmail.com", password:"totototo")
 
 
 #file = URI.parse("https://preview.redd.it/irl-simpsons-house-v0-cg4fasthv5ya1.jpeg?width=1920&format=pjpg&auto=webp&s=395f2a53aab9b262211b71742ecad4f5656d5365").open
@@ -132,13 +131,13 @@ file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/
 place7.photos.attach(io: file, filename: "barbie3.png", content_type: "image/png")
 #Shrek
 place8 = Place.create(address: "Tomintoul, Ballindalloch AB37 9HU, Royaume-Uni", beds:2, price: 32 , user: user7, description:"Charmante maison en boue à la campagne, avec salon cosy, cuisine rustique et grand jardin. Idéale pour un séjour tranquille et naturel, loin de la ville.")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022767/Shrek1_lphspd.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732096686/Shrek1_ebrjzi.jpg").open
 place8.photos.attach(io: file, filename: "shrek1.png", content_type: "image/png")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022767/Shrek2_j3padm.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732096686/Shrek2_htbqzu.jpg").open
 place8.photos.attach(io: file, filename: "shrek2.png", content_type: "image/png")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022767/Shrek5_pzrs9r.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732096686/Shrek3_tcmzuc.jpg").open
 place8.photos.attach(io: file, filename: "shrek3.png", content_type: "image/png")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022767/Shrek3_xnr6hh.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732096686/Shrek5_kp4tkw.jpg").open
 place8.photos.attach(io: file, filename: "shrek4.png", content_type: "image/png")
 #Downtown Abbey
 place9 = Place.create(address: "Highclere Park, Highclere, Newbury RG20 9RN, Royaume-Uni", beds:20, price: 29753, user: user8, description:"Élégant château à l'ancienne, avec chambres luxueuses, salons raffinés et jardins immaculés. Vivez une expérience aristocratique dans un cadre historique et somptueux.")
@@ -166,13 +165,9 @@ file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022688/
 place11.photos.attach(io: file, filename: "luke2.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022688/Luke3_f2ltsr.jpg").open
 place11.photos.attach(io: file, filename: "luke3.png", content_type: "image/png")
-#South Park
-place12 = Place.create(address: "450 US Hwy 285, Fairplay, CO 80440, États-Unis", beds:4, price:278, user: user11, description:"Maison simple et accueillante à South Park, avec salon confortable, chambres familiales et jardin spacieux. Idéale pour un séjour tranquille dans une ville pleine de surprises.")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022689/SouthPark1_dcgqcs.png").open
-place12.photos.attach(io: file, filename: "southpark.png", content_type: "image/png")
 #BreakingBad
-place13 = Place.create(address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:184, user: user12, description:"Caravane vintage et authentique, avec espace cosy, cuisine équipée et vue désertique. Activité découverte de la chimie disponible pour une expérience unique. Parfaite pour les amateurs d'aventure et de science !")
+place12 = Place.create(address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:184, user: user11, description:"Caravane vintage et authentique, avec espace cosy, cuisine équipée et vue désertique. Activité découverte de la chimie disponible pour une expérience unique. Parfaite pour les amateurs d'aventure et de science !")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022685/BreakingBad1_re6ofx.jpg").open
-place13.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
+place12.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
 
 puts "seeding finished !  "
