@@ -7,37 +7,37 @@ User.destroy_all
 puts "Starting seed deployment..."
 
 user1 = User.create(first_name:"Homer", last_name:"Simpson", email:"homer.simpson@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113961/simpsons-live_q9wvpo.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220650/simpsons-live_e3memi.jpg").open
 user1.photo.attach(io: file, filename: "Homer.png", content_type: "image/png")
 user2 = User.create(first_name:"Bilbo", last_name: "Baggins", email:"biblo.baggins@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/62d44a90-b227-11ea-affe-a1470b404b35_lzsvoy.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220636/62d44a90-b227-11ea-affe-a1470b404b35_p1dmxo.jpg").open
 user2.photo.attach(io: file, filename: "Bilbo.png", content_type: "image/png")
 user3 = User.create(first_name:"Peter", last_name: "Venkman", email:"peter.venkman@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/Peter_hac347.png").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220647/Peter_rfklww.png").open
 user3.photo.attach(io: file, filename: "Peter.png", content_type: "image/png")
 user4 = User.create(first_name:"Gomez", last_name: "Addams", email:"gomez.addams@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/gomez_q3qol7.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220646/gomez_c7yofs.jpg").open
 user4.photo.attach(io: file, filename: "Gomez.png", content_type: "image/png")
 user5 = User.create(first_name:"Cinderella", last_name:"Princess", email:"cendrillon@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/cendrillon-250_gee42a.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220643/cendrillon-250_nl6hme.jpg").open
 user5.photo.attach(io: file, filename: "Cendrillon.png", content_type: "image/png")
 user6 = User.create(first_name:"Barbie", last_name:"Doll", email:"barbie@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/barbie_oi2xzs.png").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220642/barbie_we744k.png").open
 user6.photo.attach(io: file, filename: "Barbie.png", content_type: "image/png")
 user7 = User.create(first_name:"Shrek", last_name:"Ogre", email:"shrek@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/dbf6812f59e5080cf420f1056bfceb66f7d6a43a8df19ace503ea70596afc0ff_xur49k.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220644/dbf6812f59e5080cf420f1056bfceb66f7d6a43a8df19ace503ea70596afc0ff_l9d1ku.jpg").open
 user7.photo.attach(io: file, filename: "Shrek.png", content_type: "image/png")
 user8 = User.create(first_name:"Robert", last_name: "Crawley", email:"robert.crawley@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/Robert_yxg1fz.png").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220649/Robert_yzrrmd.png").open
 user8.photo.attach(io: file, filename: "Crawley.png", content_type: "image/png")
 user9 = User.create(first_name:"Albus", last_name: "Dumbledore", email:"albus.dumbledore@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/Albus_djrya8.png").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220639/Albus_w8u3cc.png").open
 user9.photo.attach(io: file, filename: "Dumbledore.png", content_type: "image/png")
 user10 = User.create(first_name:"Luke", last_name: "Skywalker", email:"luke.skywalker@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/ac9c3c5403b811f2238c854185_qmfmcl.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220637/ac9c3c5403b811f2238c854185_jc8uyt.jpg").open
 user10.photo.attach(io: file, filename: "Skywalker.png", content_type: "image/png")
 user11 = User.create(first_name:"Walter", last_name: "White", email:"walter.white@gmail.com", password:"azerty")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/b51190101362045.5f1d68546ac50_dclxph.jpg").open
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732220640/b51190101362045.5f1d68546ac50_pxbvkx.jpg").open
 user11.photo.attach(io: file, filename: "Walter.png", content_type: "image/png")
 
 # Simpson
@@ -239,6 +239,40 @@ place12 = Place.create!(
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022685/BreakingBad1_re6ofx.jpg").open
 place12.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
+
+
+car1 = Car.create!(
+  name: "Delorean",
+  description: "This DeLorean is a futuristic car modified into a time machine, equipped with a flux capacitor and powered by plutonium or a 1.21 gigawatt generator.",
+  price: 297
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/dolorean_fik8dm.png").open
+car1.photo.attach(io: file, filename: "DeLorean.png", content_type: "image/png")
+
+car2 = Car.create!(
+  name: "Ford Explorer",
+  description: "This Ford Explorer is a rugged vehicle with a unique design, combining style and performance. With its vibrant colors and iconic logo, it takes you straight into the world of the famous park. Ideal for modern adventurers, it blends comfort and power while offering an unforgettable look.",
+  price: 297
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/71rOl5ZIqDL_skv5lx.jpg").open
+car2.photo.attach(io: file, filename: "jurassicpark.png", content_type: "image/png")
+
+car3 = Car.create!(
+  name: "Batmobile",
+  description: "The Batmobile, Batman's legendary vehicle, combines power, futuristic technology, and unique design. It embodies elegance and performance, ready to race through the streets to fight crime. Equipped with sophisticated weaponry, high-tech gadgets, and an imposing silhouette, it's the ultimate superhero car.",
+  price: 297
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/1989-Batmobile_gieo4e.jpg").open
+car3.photo.attach(io: file, filename: "batmobile.png", content_type: "image/png")
+
+
+car4 = Car.create!(
+  name: "Van Mystery Machine",
+  description: "This iconic van that’s instantly recognizable. With its vibrant green and orange design, it’s the perfect vehicle for the Mystery Inc. team. Spacious and quirky, it embodies the fun, adventurous spirit of the classic animated series. Equipped for mystery-solving and always ready for action, this van is a nostalgic ride full of charm and character!",
+  price: 297
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/replique-scooby-doo-mistery-machine-van-oc-db4c_oapuue.jpg").open
+car4.photo.attach(io: file, filename: "ScoobyDoo.png", content_type: "image/png")
 
 
 ##Dolorean

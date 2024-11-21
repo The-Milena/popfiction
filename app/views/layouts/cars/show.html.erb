@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <!-- Titre principal -->
+  <h1 class="display-4 mb-3"><%= @car.name %></h1>
+
+  <!-- Section principale -->
+  <div class="row">
+    <!-- Carrousel d'images -->
+    <div class="col-md-8">
+      <%=  %>
+    </div>
+
+    <!-- Informations sur la place -->
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title">Details</h4>
+          <p><strong>Price per day:</strong> €<%= @car.price %></p>
+          <p><strong>Description:</strong> <%= @car.description %></p>
+
+          <!-- Bouton pour afficher le formulaire -->
+          <button class="btn btn-outline-primary w-100 mt-3" data-bs-toggle="collapse" data-bs-target="#booking-form">
+            Rent this car now!
+          </button>
+
+          <!-- Dropdown du formulaire -->
+          <div id="booking-form" class="collapse mt-3">
+            <%= simple_form_for [@car, @booking] do |f| %>
+              <%= f.input :date_start,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } },
+                label: "Date start *" %>
+              <%= f.input :date_end,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } },
+                label: "Date end *" %>
+              <%= f.input :nb_of_guests, label: "Nb of passenger with a driving license *" %>
+              <%= f.submit "Submit", class: "btn btn-primary w-100 mt-3" %>
+            <% end %>
+          </div>
+
+  <!-- Section des réservations -->
+  <div class="mt-5">
+    <h2>Bookings</h2>
+    <% if @car.bookings.any? %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Guests</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @car.bookings.each do |booking| %>
+            <tr>
+              <td><%= booking.date_start.strftime('%d %b %Y') %></td>
+              <td><%= booking.date_end.strftime('%d %b %Y') %></td>
+              <td><%= booking.nb_of_guests %></td>
+              <td><%= link_to "Edit", edit_booking_path(booking), class: "btn btn-sm btn-warning" %></td>
+              <td>
+                <%= link_to "X", booking_path(booking),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: "btn btn-sm btn-danger" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>This car has no bookings yet.</p>
+    <% end %>
+  </div>
+
+  <!-- Lien pour revenir à la liste des places -->
+  <%= link_to "All available dream places", places_path, class: "btn btn-primary my-4" %>
+</div>

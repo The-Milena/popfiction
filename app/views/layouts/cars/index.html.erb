@@ -1,0 +1,9 @@
+
+<div class="d-flex justify-content-between">
+
+  <!-- Liste des places -->
+  <%=@cars.each do |car|  %>
+    <%= car.name %>
+    <%= car.description %>
+  <% end %>
+</div>

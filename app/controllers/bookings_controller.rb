@@ -2,19 +2,22 @@ class BookingsController < ApplicationController
 
   def show
     @place = Place.find(params[:place_id])
+    @car = Car.find(params[:car_id])
     @booking = Booking.find(params[:id])
     @booking.place = @place
+    @booking.car = @car
     @booking.save
   end
 
   def new
     @place = Place.find(params[:place_id])
+    @car = Car.all
     @booking = Booking.new
 
   end
 
   def create
-    
+
     @place = Place.find(params[:place_id])
     @booking = Booking.new(booking_params)
     @booking.place = @place

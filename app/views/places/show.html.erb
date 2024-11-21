@@ -108,24 +108,7 @@
     <% end %>
   </div>
 
-  <div class="popup <%= "d-none" unless @display_popup %>" data-controller="popup" data-popup-target= "root">
-    <div class="my-popup-background"></div>
-      <div data-popup-target="content" class="my-popup-content">
-      <div class="my-popup-close-btn-wrapper">
-        <button data-action="click->popup#closePopup" class="my-popup-close-btn">✕</button>
-      </div>
-        <% @cars.each_with_index do |car| %>
-          <div class="card-product p-1 m-1">
-            <%= image_tag car.photos.first, class: "d-block w-30 rounded" %>
-            <div class="card-product-infos">
-              <h2><%= car.name %></h2>
-              <p><%= car.price %></p>
-            </div>
-          </div>
-        <% end %>
-        <!-- Dropdown du formulaire -->
-    </div>
-  </div>
+
 
   <!-- Lien pour revenir à la liste des places -->
   <%= link_to "All available dream places", places_path, class: "btn btn-primary my-4" %>
