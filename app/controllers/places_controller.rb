@@ -21,6 +21,7 @@ class PlacesController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {place: place})
       }
     end
+
     if params[:query].present?
       sql_subquery = <<~SQL
       places.name ILIKE :query
@@ -36,6 +37,11 @@ class PlacesController < ApplicationController
   # Affiche une place spécifique
   def show
     @booking = Booking.new
+     @markers = [{
+    lat: @place.latitude,
+    lng: @place.longitude,
+    info_window_html: render_to_string(partial: "info_window", locals: { place: @place })
+  }]
   end
 
   # Affiche le formulaire pour créer une nouvelle place
