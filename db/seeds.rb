@@ -66,7 +66,6 @@ puts "Starting seed deployment..."
 #  @index += 1
 #end
 
-
 user1 = User.create(first_name:"Homer", last_name:"Simpson", email:"homer.simpson@gmail.com", password:"azerty")
 user2 = User.create(first_name:"Bilbo", last_name: "Baggins", email:"bilbo.baggins@gmail.com", password:"azerty")
 user3 = User.create(first_name:"Peter", last_name: "Venkman", email:"peter.venkman@gmail.com", password:"azerty")
