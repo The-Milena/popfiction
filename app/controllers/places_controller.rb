@@ -14,7 +14,7 @@ class PlacesController < ApplicationController
         lng: place.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {place: place})
       }
-
+    end
     if params[:query].present?
       sql_subquery = <<~SQL
       places.name ILIKE :query
@@ -23,7 +23,6 @@ class PlacesController < ApplicationController
       OR users.last_name ILIKE :query
     SQL
     @places = @places.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
-
     end
   end
 
