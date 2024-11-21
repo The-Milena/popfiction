@@ -1,20 +1,22 @@
 import { Controller } from "@hotwired/stimulus"
 
-
-
 export default class extends Controller {
- static targets = ["rootPopup"]
-  connect() {}
+   static targets = ["root", "content"]
 
-  // listen click outside event and perform close popup
+  connect() {
+    this.initClickOutsideEventListener()
+  }
 
-  // open popup
-  openPopup() {
-   this.rootPopupTarget.classList.add("active")
+  initClickOutsideEventListener() {
+    this.rootTarget.addEventListener("click", (event) => {
+      if (!this.popupContentTarget.contains(event.target)) {
+        this.closePopup()
+      }
+    })
   }
 
   // close popup
   closePopup() {
-   this.rootPopupTarget.classList.remove("active")
+   this.rootTarget.classList.add("d-none")
   }
 }

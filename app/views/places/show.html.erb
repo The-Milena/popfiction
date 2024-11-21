@@ -108,33 +108,22 @@
     <% end %>
   </div>
 
-  <div class="popup <%= "d-none" unless @display_popup %>">
+  <div class="popup <%= "d-none" unless @display_popup %>" data-controller="popup" data-popup-target= "root">
     <div class="my-popup-background"></div>
-    <div class="my-popup-content">
+      <div data-popup-target="content" class="my-popup-content">
       <div class="my-popup-close-btn-wrapper">
         <button data-action="click->popup#closePopup" class="my-popup-close-btn">✕</button>
       </div>
-      <div class="card-product">
-        <img src="https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/dolorean_fik8dm.png" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
-      <div class="card-product">
-        <img src="https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/replique-scooby-doo-mistery-machine-van-oc-db4c_oapuue.jpg" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
-      <div class="card-product">
-        <img src="https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/71rOl5ZIqDL_skv5lx.jpg" />
-        <div class="card-product-infos">
-          <h2>Product name</h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
-        </div>
-      </div>
+        <% @cars.each_with_index do |car| %>
+          <div class="card-product p-1 m-1">
+            <%= image_tag car.photos.first, class: "d-block w-30 rounded" %>
+            <div class="card-product-infos">
+              <h2><%= car.name %></h2>
+              <p><%= car.price %></p>
+            </div>
+          </div>
+        <% end %>
+        <!-- Dropdown du formulaire -->
     </div>
   </div>
 

@@ -6,50 +6,6 @@ User.destroy_all
 
 puts "Starting seed deployment..."
 
-
-#users_email = ["homer.simpson@gmail.com", "biblo.baggins@gmail.com", "peter.venkman@gmail.com" ]
-#@users_first_name = ["Homer", "Bilbo", "Peter"]
-#@users_last_name = ["Simpson", "Baggins", "Venkman"]
-#@places_address = ["742 Evergreen Terrace, Springfield, Oregon, USA", "501 Buckland Road, Matamata 3472, Nouvelle-Zélande", "14 N Moore St TriBeCa, New York, NY 10013-2413"]
-#@places_description = [
-#"Charmante maison familiale à Springfield, avec 4 chambres, salon spacieux, cuisine vintage et jardin accueillant. Idéale pour des vacances fun en famille !",
-#"Charmante maison troglodyte à Hobbiton, avec 1 chambre cosy, un salon confortable, une cuisine rustique et un jardin verdoyant. Idéale pour une retraite paisible au cœur de la Terre du Milieu, à deux pas des paysages enchanteurs et des sentiers de randonnée !",
-#"Ancienne caserne de pompiers à New York, transformée en quartier général des Ghostbusters. Espaces spacieux, décor unique, et équipements modernes. Parfait pour les amateurs de paranormal et les aventuriers urbains !"
-#]
-#
-#@index = 0
-#
-#users_email.each do |user_email|
-#  user = User.new
-#  user.email = user_email
-#  user.first_name = @users_first_name[@index]
-#  user.last_name = @users_last_name[@index]
-#  user.password = "totototo"
-#  user.save!
-#  place = Place.new
-#  place.address = @places_address[@index]
-#  place.beds = rand(1..5)
-#  place.price = rand(50..5000)
-#  place.description = @places_description[@index]
-#  place.user_id = user.id
-#  place.save!
-#  @index += 1
-#end
-
-
-#user1 = User.create(first_name:"Homer", last_name:"Simpson", email:"homer.simpson@gmail.com", password:"azerty")
-#user2 = User.create(first_name:"Bilbo", last_name: "Baggins", email:"bilbo.baggins@gmail.com", password:"azerty")
-#user3 = User.create(first_name:"Peter", last_name: "Venkman", email:"peter.venkman@gmail.com", password:"azerty")
-#user4 = User.create(first_name:"Gomez", last_name: "Addams", email:"gomez.addams@gmail.com", password:"azerty")
-#user5 = User.create(first_name:"Cinderella", last_name:"Princess", email:"cendrillon@gmail.com", password:"azerty")
-#user6 = User.create(first_name:"Barbie", last_name:"Doll", email:"barbie@gmail.com", password:"azerty")
-#user7 = User.create(first_name:"Shrek", last_name:"Ogre", email:"shrek@gmail.com", password:"azerty")
-#user8 = User.create(first_name:"Robert", last_name: "Crawley", email:"robert.crawley@gmail.com", password:"azerty")
-#user9 = User.create(first_name:"Albus", last_name: "Dumbledore", email:"albus.dumbledore@gmail.com", password:"azerty")
-#user10 = User.create(first_name:"Luke", last_name: "Skywalker", email:"luke.skywalker@gmail.com", password:"azerty")
-#user11 = User.create(first_name:"Walter", last_name: "White", email:"walter.white@gmail.com", password:"azerty")
-
-
 user1 = User.create(first_name:"Homer", last_name:"Simpson", email:"homer.simpson@gmail.com", password:"azerty")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113961/simpsons-live_q9wvpo.jpg").open
 user1.photo.attach(io: file, filename: "Homer.png", content_type: "image/png")
@@ -84,11 +40,6 @@ user11 = User.create(first_name:"Walter", last_name: "White", email:"walter.whit
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/b51190101362045.5f1d68546ac50_dclxph.jpg").open
 user11.photo.attach(io: file, filename: "Walter.png", content_type: "image/png")
 
-
-#file = URI.parse("https://preview.redd.it/irl-simpsons-house-v0-cg4fasthv5ya1.jpeg?width=1920&format=pjpg&auto=webp&s=395f2a53aab9b262211b71742ecad4f5656d5365").open
-#list = Place.create(address: "742 Evergreen Terrace, Springfield, Oregon, USA", beds: 4, price:273, user_id: 3, description:"Charmante maison familiale à Springfield, avec 4 chambres, salon spacieux, cuisine vintage et jardin accueillant. Idéale pour des vacances fun en famille !" )
-#list.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
-#
 # Simpson
 place1 = Place.create!(
   name: "Simpsons' House",
@@ -288,31 +239,59 @@ place12 = Place.create!(
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022685/BreakingBad1_re6ofx.jpg").open
 place12.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
-#Dolorean
-place13 = Place.create(name: "DeLorean", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:184, user: user1,
-description:"This DeLorean is a futuristic car modified into a time machine, equipped with a flux capacitor and powered by plutonium or a 1.21 gigawatt generator.")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/dolorean_fik8dm.png").open
-place13.photos.attach(io: file, filename: "DeLorean.png", content_type: "image/png")
-#Jurrasic Park
-place14 = Place.create(name: "Ford Explorer", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:176, user: user1,
-description:"This Ford Explorer is a rugged vehicle with a unique design, combining style and performance. With its vibrant colors and iconic logo, it takes you straight into the world of the famous park. Ideal for modern adventurers, it blends comfort and power while offering an unforgettable look.")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/71rOl5ZIqDL_skv5lx.jpg").open
-place14.photos.attach(io: file, filename: "jurassicpark.png", content_type: "image/png")
-#Batman
-place15 = Place.create(name: "Batmobile", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:169, user: user1,
-description:"The Batmobile, Batman's legendary vehicle, combines power, futuristic technology, and unique design. It embodies elegance and performance, ready to race through the streets to fight crime. Equipped with sophisticated weaponry, high-tech gadgets, and an imposing silhouette, it's the ultimate superhero car.")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/1989-Batmobile_gieo4e.jpg").open
-place15.photos.attach(io: file, filename: "batmobile.png", content_type: "image/png")
-#Fifth Element
-place16 = Place.create(name: "Korben's Cab", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:192, user: user1,
-description:"This taxi is an iconic futuristic vehicle, colorful, fast, and stylish, with a dynamic shape. Equipped with advanced technologies, it zooms at top speed, offering its passenger a unique and thrilling experience. Ideal for science fiction fans, this spacious and impressive taxi blends comfort and efficiency!")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/Movie_Fifth_Element_Taxi_1997_1000_0001_wndtcx.jpg").open
-place16.photos.attach(io: file, filename: "5thElement.png", content_type: "image/png")
-#Scoobydoo
-place17 = Place.create(name: "Van Mystery Machine", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:187, user: user1,
-description:"This iconic van that’s instantly recognizable. With its vibrant green and orange design, it’s the perfect vehicle for the Mystery Inc. team. Spacious and quirky, it embodies the fun, adventurous spirit of the classic animated series. Equipped for mystery-solving and always ready for action, this van is a nostalgic ride full of charm and character!")
-file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/replique-scooby-doo-mistery-machine-van-oc-db4c_oapuue.jpg").open
-place17.photos.attach(io: file, filename: "ScoobyDoo.png", content_type: "image/png")
+
+
+##Dolorean
+#place13 = Place.create!(
+#  name: "DeLorean",
+#  address: "2 Civic Plz NW, Albuquerque, NM 87102, États-Unis",
+#  beds: 2,
+#  price:184,
+#  category: "Car",
+#  user: user1,
+#  description:"This DeLorean is a futuristic car modified into a time machine, equipped with a flux capacitor and powered by plutonium or a 1.21 gigawatt generator."
+#  )
+#file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/dolorean_fik8dm.png").open
+#place13.photos.attach(io: file, filename: "DeLorean.png", content_type: "image/png")
+#
+##Jurrasic Park
+#place14 = Place.create!(
+#  name: "Ford Explorer",
+#  address: "3 Civic Plz NW, Albuquerque, NM 87102, États-Unis",
+#  beds: 2,
+#  price:176,
+#  category: "Car",
+#  user: user1,
+#  description:"This Ford Explorer is a rugged vehicle with a unique design, combining style and performance. With its vibrant colors and iconic logo, it takes you straight into the world of the famous park. Ideal for modern adventurers, it blends comfort and power while offering an unforgettable look."
+#  )
+#file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/71rOl5ZIqDL_skv5lx.jpg").open
+#place14.photos.attach(io: file, filename: "jurassicpark.png", content_type: "image/png")
+#
+##Batman
+#place15 = Place.create!(
+#  name: "Batmobile",
+#  address: "4 Civic Plz NW, Albuquerque, NM 87102, États-Unis",
+#  beds: 2,
+#  price:169,
+#  category: "Car",
+#  user: user1,
+#  description:"The Batmobile, Batman's legendary vehicle, combines power, futuristic technology, and unique design. It embodies elegance and performance, ready to race through the streets to fight crime. Equipped with sophisticated weaponry, high-tech gadgets, and an imposing silhouette, it's the ultimate superhero car."
+#  )
+#file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/1989-Batmobile_gieo4e.jpg").open
+#place15.photos.attach(io: file, filename: "batmobile.png", content_type: "image/png")
+#
+##Scoobydoo
+#place17 = Place.create!(
+#  name: "Van Mystery Machine",
+#  address: "5 Civic Plz NW, Albuquerque, NM 87102, États-Unis",
+#  beds: 2,
+#  price:187,
+#  category: "Car",
+#  user: user1,
+#  description:"This iconic van that’s instantly recognizable. With its vibrant green and orange design, it’s the perfect vehicle for the Mystery Inc. team. Spacious and quirky, it embodies the fun, adventurous spirit of the classic animated series. Equipped for mystery-solving and always ready for action, this van is a nostalgic ride full of charm and character!"
+#  )
+#file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/replique-scooby-doo-mistery-machine-van-oc-db4c_oapuue.jpg").open
+#place17.photos.attach(io: file, filename: "ScoobyDoo.png", content_type: "image/png")
 
 
 puts "seeding finished !  "

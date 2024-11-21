@@ -37,7 +37,7 @@ class PlacesController < ApplicationController
   def show
     @booking = Booking.new
     @display_popup = params[:popup].present?
-    #@cars = Place.where label:cars
+    @cars = Place.where(category: "Car")
   end
 
   # Affiche le formulaire pour créer une nouvelle place

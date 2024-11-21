@@ -10,9 +10,11 @@ class BookingsController < ApplicationController
   def new
     @place = Place.find(params[:place_id])
     @booking = Booking.new
+
   end
 
   def create
+    
     @place = Place.find(params[:place_id])
     @booking = Booking.new(booking_params)
     @booking.place = @place
