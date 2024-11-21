@@ -11,8 +11,8 @@ class PlacesController < ApplicationController
       @places = Place.where(category: params[:category]) # Filtre les places par catégorie
     else
       @places = Place.all # Affiche toutes les places
+    end
 
-    
 
     @markers = @places.geocoded.map do |place|
       {
