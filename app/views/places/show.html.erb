@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <!-- Titre principal -->
   <h1 class="display-4 mb-3"><%= @place.name %></h1>
-  <p class="lead"><strong><%= @place.address%></strong></p>
+  <p class="lead"><strong><%= @place.address %></strong></p>
   <p class="lead">Hosted by <strong><%= @place.user.first_name %> <%= @place.user.last_name %></strong></p>
 
   <!-- Section principale -->
@@ -37,26 +37,29 @@
           <p><strong>Beds:</strong> <%= @place.beds %></p>
           <p><strong>Description:</strong> <%= @place.description %></p>
 
-          <!-- Bouton pour afficher le formulaire -->
-          <button class="btn btn-outline-primary w-100 mt-3" data-bs-toggle="collapse" data-bs-target="#booking-form">
-            Book this place now!
-          </button>
+          <!-- Afficher le formulaire uniquement si ce n'est pas la place de l'utilisateur -->
+          <% unless current_user == @place.user %>
+            <!-- Bouton pour afficher le formulaire -->
+            <button class="btn btn-outline-primary w-100 mt-3" data-bs-toggle="collapse" data-bs-target="#booking-form">
+              Book this place now!
+            </button>
 
-          <!-- Dropdown du formulaire -->
-          <div id="booking-form" class="collapse mt-3">
-            <%= simple_form_for [@place, @booking] do |f| %>
-              <%= f.input :date_start,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } },
-                label: "Date start *" %>
-              <%= f.input :date_end,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } },
-                label: "Date end *" %>
-              <%= f.input :nb_of_guests, label: "Nb of guests *" %>
-              <%= f.submit "Submit", class: "btn btn-primary w-100 mt-3" %>
-            <% end %>
-          </div>
+            <!-- Dropdown du formulaire -->
+            <div id="booking-form" class="collapse mt-3">
+              <%= simple_form_for [@place, @booking] do |f| %>
+                <%= f.input :date_start,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } },
+                  label: "Date start *" %>
+                <%= f.input :date_end,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } },
+                  label: "Date end *" %>
+                <%= f.input :nb_of_guests, label: "Nb of guests *" %>
+                <%= f.submit "Submit", class: "btn btn-primary w-100 mt-3" %>
+              <% end %>
+            </div>
+          <% end %>
 
           <!-- Boutons pour modifier ou supprimer la place -->
           <% if current_user == @place.user %>
