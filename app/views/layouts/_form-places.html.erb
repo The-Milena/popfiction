@@ -10,6 +10,7 @@
 <% end %>
 
 <%= simple_form_for(@place, html: { multipart: true }) do |f| %>
+  <%= f.input :category, collection: ['Cartoons & Animation', 'Fantasy Worlds', 'Horror & Mystery', 'Luxury', 'Royal Castles', 'Magical Worlds', 'Adventure & Sci-Fi'], prompt: "Select a category" %>
   <%= f.input :address, label: "Address" %>
   <%= f.input :beds, label: "Number of Beds", input_html: { type: "number" } %>
   <%= f.input :price, label: "Price (€)", input_html: { step: 0.01 } %>
