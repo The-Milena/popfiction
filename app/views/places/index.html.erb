@@ -1,4 +1,28 @@
 <div class="container mt-4">
+
+  <!-- Barre de catégories dynamique -->
+  <div class="categories-bar mb-4">
+    <ul class="nav nav-pills">
+      <!-- Lien pour afficher toutes les places -->
+      <li class="nav-item">
+        <%= link_to "All", places_path, class: "nav-link #{'active' if params[:category].nil?}" %>
+      </li>
+      <!-- Lien pour chaque catégorie dynamique -->
+      <% if @categories.any? %>
+        <% @categories.each do |category| %>
+          <li class="nav-item">
+            <%= link_to category, places_path(category: category), class: "nav-link #{'active' if params[:category] == category}" %>
+          </li>
+        <% end %>
+      <% else %>
+        <li class="nav-item">
+          <span class="nav-link disabled">No categories available</span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <!-- Liste des places -->
   <div class="row">
     <% @places.each do |place| %>
       <div class="col-md-3 mb-4">

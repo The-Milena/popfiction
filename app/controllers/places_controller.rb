@@ -4,9 +4,13 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
-  # Liste toutes les places
   def index
-    @places = Place.all
+    @categories = Place.distinct.pluck(:category) # Récupère toutes les catégories uniques
+    if params[:category].present?
+      @places = Place.where(category: params[:category]) # Filtre les places par catégorie
+    else
+      @places = Place.all # Affiche toutes les places
+    end
   end
 
   # Affiche une place spécifique
