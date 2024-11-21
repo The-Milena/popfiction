@@ -6,6 +6,20 @@ class Place < ApplicationRecord
   validates :address, uniqueness: true
   validates :beds, numericality: { greater_than: 0 }
   validates :beds, numericality: { only_integer: true }
-  validates :description, length: { minimum: 120 }
+  validates :description, length: { minimum: 40 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :name, :description ],
+  associated_against: {
+    user: [ :first_name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+  
 end

@@ -7,10 +7,11 @@ class User < ApplicationRecord
   # Relations
   has_many :bookings
   has_many :places, dependent: :destroy # Ajoute la relation avec Place
+  has_one_attached :photo
 
   # Validations
   validates :email, uniqueness: true
   validates :email, :password, :last_name, :first_name, presence: true
-  validates :password, length: { minimum: 8 }
+  validates :password, length: { minimum: 6 }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "must be a valid email address" }
 end
