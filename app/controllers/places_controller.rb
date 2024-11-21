@@ -4,9 +4,15 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
-  # Liste toutes les places
   def index
-    @places = Place.all
+
+    @categories = Place.distinct.pluck(:category) # Récupère toutes les catégories uniques
+    if params[:category].present?
+      @places = Place.where(category: params[:category]) # Filtre les places par catégorie
+    else
+      @places = Place.all # Affiche toutes les places
+    end
+
 
     @markers = @places.geocoded.map do |place|
       {
@@ -23,6 +29,7 @@ class PlacesController < ApplicationController
       OR users.last_name ILIKE :query
     SQL
     @places = @places.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+
     end
   end
 
