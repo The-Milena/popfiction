@@ -4,9 +4,33 @@ class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
-  # Liste toutes les places
   def index
-    @places = Place.all
+
+    @categories = Place.distinct.pluck(:category) # Récupère toutes les catégories uniques
+    if params[:category].present?
+      @places = Place.where(category: params[:category]) # Filtre les places par catégorie
+    else
+      @places = Place.all # Affiche toutes les places
+    end
+
+
+    @markers = @places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {place: place})
+      }
+    end
+    if params[:query].present?
+      sql_subquery = <<~SQL
+      places.name ILIKE :query
+      OR places.description ILIKE :query
+      OR users.first_name ILIKE :query
+      OR users.last_name ILIKE :query
+    SQL
+    @places = @places.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+
+    end
   end
 
   # Affiche une place spécifique
@@ -69,6 +93,6 @@ class PlacesController < ApplicationController
 
   # Permet uniquement certains paramètres pour la sécurité
   def place_params
-    params.require(:place).permit(:address, :beds, :price, :description, :picture)
+    params.require(:place).permit(:address, :beds, :price, :description, photos:[])
   end
 end
