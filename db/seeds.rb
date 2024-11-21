@@ -9,7 +9,7 @@ puts "Starting seed deployment..."
 user1 = User.create(first_name:"Homer", last_name:"Simpson", email:"homer.simpson@gmail.com", password:"popfiction")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113961/simpsons-live_q9wvpo.jpg").open
 user1.photo.attach(io: file, filename: "Homer.png", content_type: "image/png")
-user2 = User.create(first_name:"Bilbo", last_name: "Baggins", email:"biblo.baggins@gmail.com", password:"popfiction")
+user2 = User.create(first_name:"Bilbo", last_name: "Baggins", email:"bilbo.baggins@gmail.com", password:"popfiction")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113896/62d44a90-b227-11ea-affe-a1470b404b35_lzsvoy.jpg").open
 user2.photo.attach(io: file, filename: "Bilbo.png", content_type: "image/png")
 user3 = User.create(first_name:"Peter", last_name: "Venkman", email:"peter.venkman@gmail.com", password:"popfiction")
@@ -41,13 +41,15 @@ file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/
 user11.photo.attach(io: file, filename: "Walter.png", content_type: "image/png")
 
 ##Simpson
-place1 = Place.create(name: "Simpsons' house", address: "742 Evergreen Terrace, Springfield, Oregon, USA", beds: 4, price:27389 , user: user1, description:"Charmante maison familiale à Springfield, avec 4 chambres, salon spacieux, cuisine vintage et jardin accueillant. Idéale pour des vacances fun en famille !" )
+place1 = Place.create(name: "Simpsons' house", address: "742 Evergreen Terrace, Springfield, Oregon, USA", beds: 4, price:27389 , user: user1,
+description:"Charming family home in Springfield, featuring 4 bedrooms, a spacious living room, vintage kitchen, and a welcoming garden. Perfect for a fun family vacation!" )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022767/Simpson1_we1tla.png").open
 place1.photos.attach(io: file, filename: "simpson1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022689/Simpson2_mk4a3d.png").open
 place1.photos.attach(io: file, filename: "simpson2.png", content_type: "image/png")
 #Hobbit
-place2 = Place.create(name: "Bilbo's House", address: "501 Buckland Road, Matamata 3472, Nouvelle-Zélande", beds:2, price:324, user: user2, description:"Charmante maison troglodyte à Hobbiton, avec 1 chambre cosy, un salon confortable, une cuisine rustique et un jardin verdoyant. Idéale pour une retraite paisible au cœur de la Terre du Milieu, à deux pas des paysages enchanteurs et des sentiers de randonnée !" )
+place2 = Place.create(name: "Bag End", address: "501 Buckland Road, Matamata 3472, Nouvelle-Zélande", beds:2, price:324, user: user2,
+description:"Charming cave house in Hobbiton, featuring 1 cozy bedroom, a comfortable living room, a rustic kitchen, and a lush garden. Perfect for a peaceful retreat in the heart of Middle-earth, just steps away from enchanting landscapes and hiking trails!" )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022686/Hobbit1_ezfnls.png").open
 place2.photos.attach(io: file, filename: "hobbit1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022687/Hobbit2_vfmqzt.png").open
@@ -57,21 +59,25 @@ place2.photos.attach(io: file, filename: "hobbit3.png", content_type: "image/png
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022687/Hobbit4_wzaxbp.png").open
 place2.photos.attach(io: file, filename: "hobbit4.png", content_type: "image/png")
 #Ghostbusters
-place3 = Place.create(name: "Ghostbusters' caserne", address: "14 N Moore St TriBeCa, New York, NY 10013-2413", beds:10, price:12734, user: user3, description:"Ancienne caserne de pompiers à New York, transformée en quartier général des Ghostbusters. Espaces spacieux, décor unique, et équipements modernes. Parfait pour les amateurs de paranormal et les aventuriers urbains !" )
+place3 = Place.create(name: "Ghostbusters' caserne", address: "14 N Moore St TriBeCa, New York, NY 10013-2413", beds:10, price:12734, user: user3,
+description:"Old firehouse in New York, converted into the Ghostbusters' headquarters. Spacious rooms, unique decor, and modern amenities. Perfect for paranormal enthusiasts and urban adventurers!" )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022764/Ghostbuster1_cwera8.jpg").open
 place3.photos.attach(io: file, filename: "ghostbuster1.png", content_type: "image/png")
 #Addams
-place4 = Place.create(name: "The Addams' Manor", address: "E. Grand St., Palatine Bridge, New York", beds:5, price:2178, user: user4, description:"Maison gothique et mystérieuse, spacieuse avec 5 chambres, un salon extravagant, et un jardin énigmatique. Ambiance étrange et décor unique, idéale pour les amateurs de l'étrange et de l’inattendu.")
+place4 = Place.create(name: "The Addams' Manor", address: "E. Grand St., Palatine Bridge, New York", beds:5, price:2178, user: user4,
+description:"A gothic and mysterious house, spacious with 5 bedrooms, an extravagant living room, and an enigmatic garden. Strange ambiance and unique decor, perfect for lovers of the unusual and unexpected.")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022762/Addams1_ae8l8a.jpg").open
 place4.photos.attach(io: file, filename: "addams1.png", content_type: "image/png")
 #Cendrillon
-place5 = Place.create(name: "Disney's castle", address: "Bd de Parc, 77700 Coupvray", beds:20, price: 10245, user: user5, description:"Splendide château de conte de fées, avec chambres élégantes, grandes salles et jardins féériques. Lieu magique pour une expérience royale inoubliable.")
+place5 = Place.create(name: "Disney's castle", address: "Bd de Parc, 77700 Coupvray", beds:20, price: 10245, user: user5,
+description:"A stunning fairytale castle, featuring elegant rooms, grand halls, and enchanting gardens. A magical place for an unforgettable royal experience.")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/Disney1_nuigxk.jpg").open
 place5.photos.attach(io: file, filename: "cendrillon1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/Disney2_khhrvo.jpg").open
 place5.photos.attach(io: file, filename: "cendrillon2.png", content_type: "image/png")
 #Ken
-place6 = Place.create(name: "Ken's villa", address: "23825 Stuart Ranch Rd, Malibu, CA 90265, États-Unis", beds: 6, price:18984, user: user6, description:"Maison stylée de Ken, avec une grande piscine, un espace barbecue parfait pour des soirées entre amis, et un coin dédié à sa passion pour les chevaux. Ambiance chic et décontractée garantie !")
+place6 = Place.create(name: "Ken's villa", address: "23825 Stuart Ranch Rd, Malibu, CA 90265, États-Unis", beds: 6, price:18984, user: user6,
+description:"Ken's stylish house, featuring a large pool, a perfect barbecue area for entertaining friends, and a corner dedicated to his love for horses. Chic and laid-back ambiance guaranteed!")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022765/Ken1_ylctp0.png").open
 place6.photos.attach(io: file, filename: "ken1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022765/Ken2_xxxziz.png").open
@@ -79,7 +85,8 @@ place6.photos.attach(io: file, filename: "ken2.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022766/Ken3_ucb4gr.png").open
 place6.photos.attach(io: file, filename: "ken3.png", content_type: "image/png")
 #Barbie
-place7 = Place.create(name: "Barbie's Dreamhouse", address: "23835 Stuart Ranch Rd, Malibu, CA 90265, États-Unis", beds: 6, price: 22456, user: user6, description:"Maison glam et colorée de Barbie, avec piscine, salon élégant, cuisine moderne et jardin vibrant. Un séjour féérique et chic dans un cadre de rêve !")
+place7 = Place.create(name: "Barbie's Dreamhouse", address: "23835 Stuart Ranch Rd, Malibu, CA 90265, États-Unis", beds: 6, price: 22456, user: user6,
+description:"Barbie's glamorous and colorful house, featuring a pool, elegant living room, modern kitchen, and vibrant garden. A dreamy, chic stay in a fairytale setting!")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022762/Barbie1_tssbvs.png").open
 place7.photos.attach(io: file, filename: "barbie1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/Barbie3_zct6qm.jpg").open
@@ -87,7 +94,8 @@ place7.photos.attach(io: file, filename: "barbie2.png", content_type: "image/png
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/Barbie2_ut94bu.jpg").open
 place7.photos.attach(io: file, filename: "barbie3.png", content_type: "image/png")
 #Shrek
-place8 = Place.create(name: "Shrek's Swamp", address: "Tomintoul, Ballindalloch AB37 9HU, Royaume-Uni", beds:2, price: 32 , user: user7, description:"Charmante maison en boue à la campagne, avec salon cosy, cuisine rustique et grand jardin. Idéale pour un séjour tranquille et naturel, loin de la ville.")
+place8 = Place.create(name: "Shrek's Swamp", address: "Tomintoul, Ballindalloch AB37 9HU, Royaume-Uni", beds:2, price: 32 , user: user7,
+description:"Charming mud house in the countryside, with a cozy living room, rustic kitchen, and large garden. Perfect for a peaceful, nature-filled getaway, far from the city.")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732096686/Shrek1_ebrjzi.jpg").open
 place8.photos.attach(io: file, filename: "shrek1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732096686/Shrek2_htbqzu.jpg").open
@@ -97,7 +105,8 @@ place8.photos.attach(io: file, filename: "shrek3.png", content_type: "image/png"
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732096686/Shrek5_kp4tkw.jpg").open
 place8.photos.attach(io: file, filename: "shrek4.png", content_type: "image/png")
 #Downtown Abbey
-place9 = Place.create(name: "Downtown Abbey", address: "Highclere Park, Highclere, Newbury RG20 9RN, Royaume-Uni", beds:20, price: 29753, user: user8, description:"Élégant château à l'ancienne, avec chambres luxueuses, salons raffinés et jardins immaculés. Vivez une expérience aristocratique dans un cadre historique et somptueux.")
+place9 = Place.create(name: "Downtown Abbey", address: "Highclere Park, Highclere, Newbury RG20 9RN, Royaume-Uni", beds:20, price: 29753, user: user8,
+description:"Elegant old-world castle, featuring luxurious rooms, refined lounges, and immaculate gardens. Experience aristocratic living in a historic and lavish setting.")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/Downtown1_vbdqbk.jpg").open
 place9.photos.attach(io: file, filename: "downtown1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/Downtown2_gchnm9.jpg").open
@@ -107,7 +116,8 @@ place9.photos.attach(io: file, filename: "downtown3.png", content_type: "image/p
 file = URI.parse("https://hips.hearstapps.com/toc.h-cdn.co/assets/16/10/1457623216-tcx0212107c.jpg?resize=980:*").open
 place9.photos.attach(io: file, filename: "downtown4.png", content_type: "image/png")
 #Hogwart
-place10 = Place.create(name: "Hogwarts", address: "Dornie, Kyle of Lochalsh IV40 8DX, Royaume-Uni", beds:280, price: 37823, user: user9, description:"Château majestueux avec salles vastes, chambres secrètes, et jardins enchâssés. Un lieu enchanteur pour un séjour unique au cœur de la magie et du mystère.")
+place10 = Place.create(name: "Hogwarts", address: "Dornie, Kyle of Lochalsh IV40 8DX, Royaume-Uni", beds:280, price: 37823, user: user9,
+description:"A majestic castle with vast halls, secret rooms, and hidden gardens. An enchanting place for a unique stay in the heart of magic and mystery.")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022765/Hogwart1_tpltj3.jpg").open
 place10.photos.attach(io: file, filename: "poudlard1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022765/Hogwart2_fs5fmc.jpg").open
@@ -115,7 +125,8 @@ place10.photos.attach(io: file, filename: "poudlard2.png", content_type: "image/
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022765/Hogwart3_kjv07k.jpg").open
 place10.photos.attach(io: file, filename: "poudlard3.png", content_type: "image/png")
 #Tatouine
-place11 = Place.create(name: "Luke's house", address: "Hôtel Dakyanus, Route El Ferch BP 234, C207, Tataouine 3200, Tunisie", beds:4, price: 156, user: user10, description:"Maison troglodyte unique sur Tatouine, avec vues imprenables, espace spacieux et ambiance désertique. Parfaite pour une retraite isolée sous deux soleils." )
+place11 = Place.create(name: "Luke's house", address: "Hôtel Dakyanus, Route El Ferch BP 234, C207, Tataouine 3200, Tunisie", beds:4, price: 156, user: user10,
+description:"A unique cave house on Tatooine, featuring breathtaking views, spacious living areas, and a desert ambiance. Perfect for an isolated retreat under two suns." )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022766/Luke1_czhvm5.jpg").open
 place11.photos.attach(io: file, filename: "luke1.png", content_type: "image/png")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022688/Luke2_dzcb52.jpg").open
@@ -123,8 +134,34 @@ place11.photos.attach(io: file, filename: "luke2.png", content_type: "image/png"
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022688/Luke3_f2ltsr.jpg").open
 place11.photos.attach(io: file, filename: "luke3.png", content_type: "image/png")
 #BreakingBad
-place12 = Place.create(name: "Walter's trailor", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:184, user: user11, description:"Caravane vintage et authentique, avec espace cosy, cuisine équipée et vue désertique. Activité découverte de la chimie disponible pour une expérience unique. Parfaite pour les amateurs d'aventure et de science !")
+place12 = Place.create(name: "Heisenberg's caravan", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:184, user: user11,
+description:"A vintage and authentic caravan, featuring a cozy space, equipped kitchen, and desert views. Chemistry discovery activities available for a unique experience. Perfect for adventure and science enthusiasts!")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022685/BreakingBad1_re6ofx.jpg").open
 place12.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
+#Dolorean
+place13 = Place.create(name: "DeLorean", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:184, user: user1,
+description:"This DeLorean is a futuristic car modified into a time machine, equipped with a flux capacitor and powered by plutonium or a 1.21 gigawatt generator.")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/dolorean_fik8dm.png").open
+place13.photos.attach(io: file, filename: "DeLorean.png", content_type: "image/png")
+#Jurrasic Park
+place14 = Place.create(name: "Ford Explorer", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:176, user: user1,
+description:"This Ford Explorer is a rugged vehicle with a unique design, combining style and performance. With its vibrant colors and iconic logo, it takes you straight into the world of the famous park. Ideal for modern adventurers, it blends comfort and power while offering an unforgettable look.")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/71rOl5ZIqDL_skv5lx.jpg").open
+place14.photos.attach(io: file, filename: "jurassicpark.png", content_type: "image/png")
+#Batman
+place15 = Place.create(name: "Batmobile", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:169, user: user1,
+description:"The Batmobile, Batman's legendary vehicle, combines power, futuristic technology, and unique design. It embodies elegance and performance, ready to race through the streets to fight crime. Equipped with sophisticated weaponry, high-tech gadgets, and an imposing silhouette, it's the ultimate superhero car.")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/1989-Batmobile_gieo4e.jpg").open
+place15.photos.attach(io: file, filename: "batmobile.png", content_type: "image/png")
+#Fifth Element
+place16 = Place.create(name: "Korben's Cab", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:192, user: user1,
+description:"This taxi is an iconic futuristic vehicle, colorful, fast, and stylish, with a dynamic shape. Equipped with advanced technologies, it zooms at top speed, offering its passenger a unique and thrilling experience. Ideal for science fiction fans, this spacious and impressive taxi blends comfort and efficiency!")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/Movie_Fifth_Element_Taxi_1997_1000_0001_wndtcx.jpg").open
+place16.photos.attach(io: file, filename: "5thElement.png", content_type: "image/png")
+#Scoobydoo
+place17 = Place.create(name: "Van Mystery Machine", address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis", beds: 2, price:187, user: user1,
+description:"This iconic van that’s instantly recognizable. With its vibrant green and orange design, it’s the perfect vehicle for the Mystery Inc. team. Spacious and quirky, it embodies the fun, adventurous spirit of the classic animated series. Equipped for mystery-solving and always ready for action, this van is a nostalgic ride full of charm and character!")
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/replique-scooby-doo-mistery-machine-van-oc-db4c_oapuue.jpg").open
+place17.photos.attach(io: file, filename: "ScoobyDoo.png", content_type: "image/png")
 
 puts "seeding finished !  "

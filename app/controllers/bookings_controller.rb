@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @user_id = current_user
     @booking.user = @user_id
     if @booking.save
-      redirect_to place_path(@place)
+      redirect_to place_path(@place, popup: true)
     else
       render "places/show", status: :unprocessable_entity
     end

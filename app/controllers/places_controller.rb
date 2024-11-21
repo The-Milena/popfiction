@@ -12,6 +12,8 @@ class PlacesController < ApplicationController
   # Affiche une place spécifique
   def show
     @booking = Booking.new
+    @display_popup = params[:popup].present?
+    #@cars = Place.where label:cars
   end
 
   # Affiche le formulaire pour créer une nouvelle place

@@ -57,6 +57,7 @@
             <% end %>
           </div>
 
+
           <!-- Boutons pour modifier ou supprimer la place -->
           <% if current_user == @place.user %>
             <div class="mt-4">
@@ -104,6 +105,36 @@
     <% else %>
       <p>This place has no bookings yet.</p>
     <% end %>
+  </div>
+
+  <div class="popup <%= "d-none" unless @display_popup %>">
+    <div class="my-popup-background"></div>
+    <div class="my-popup-content">
+      <div class="my-popup-close-btn-wrapper">
+        <button data-action="click->popup#closePopup" class="my-popup-close-btn">✕</button>
+      </div>
+      <div class="card-product">
+        <img src="https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/dolorean_fik8dm.png" />
+        <div class="card-product-infos">
+          <h2>Product name</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/replique-scooby-doo-mistery-machine-van-oc-db4c_oapuue.jpg" />
+        <div class="card-product-infos">
+          <h2>Product name</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+      <div class="card-product">
+        <img src="https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/71rOl5ZIqDL_skv5lx.jpg" />
+        <div class="card-product-infos">
+          <h2>Product name</h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Lien pour revenir à la liste des places -->
