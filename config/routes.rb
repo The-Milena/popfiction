@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :places do
     resources :bookings, only: [:new, :create]
+
   end
     resources :bookings, only: [:destroy, :edit, :update, :show]
+    patch "bookings/:id/accept", to: "bookings#accept", as: :accept
+    patch "bookings/:id/refuse", to: "bookings#refuse", as: :refuse
 end
