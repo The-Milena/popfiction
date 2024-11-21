@@ -7,6 +7,15 @@ class PlacesController < ApplicationController
   # Liste toutes les places
   def index
     @places = Place.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+      places.name ILIKE :query
+      OR places.description ILIKE :query
+      OR users.first_name ILIKE :query
+      OR users.last_name ILIKE :query
+    SQL
+    @places = @places.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   # Affiche une place spécifique
@@ -67,6 +76,6 @@ class PlacesController < ApplicationController
 
   # Permet uniquement certains paramètres pour la sécurité
   def place_params
-    params.require(:place).permit(:address, :beds, :price, :description, photos: [])
+    params.require(:place).permit(:address, :beds, :price, :description, photos:[])
   end
 end

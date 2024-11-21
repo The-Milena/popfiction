@@ -1,5 +1,14 @@
 <div class="container mt-4">
   <div class="row">
+     <%# search bar %>
+     <%= form_with url: places_path, method: :get, class: "d-flex mb-3" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find your next dream vacation"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
     <% @places.each do |place| %>
       <div class="col-md-3 mb-4">
         <div class="card border-0 shadow-sm card-fixed">
