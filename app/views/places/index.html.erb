@@ -1,4 +1,4 @@
-<div class="d-flex container mt-4">
+<div class="container mt-4 px-3">
 
   <!-- Barre de catégories dynamique -->
   <div class="categories-bar mb-4">
@@ -21,14 +21,15 @@
       <% end %>
     </ul>
   </div>
+
+  
 </div>
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between px-3">
 
   <!-- Liste des places -->
   
-  <div class="d-flex container mt-4">
+  <div class="d-flex flex-column flex-grow-1">
 
-  <div class="row">
      <%# search bar %>
      <%= form_with url: places_path, method: :get, class: "d-flex mb-3" do %>
       <%= text_field_tag :query,
@@ -38,9 +39,10 @@
         %>
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
+  <div class="row">
     <% @places.each do |place| %>
-      <div class="col-md-4 mb-6">
-        <div class="card border-0 shadow-sm">
+      <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-sm h-100">
           <!-- Carrousel pour les images -->
           <div id="carousel-<%= place.id %>" class="carousel slide">
             <div class="carousel-inner">
@@ -62,7 +64,7 @@
           </div>
 
           <!-- Détails de la carte -->
-          <div class="card-body">
+          <div class="card-body d-flex flex-column flex-grow-1">
             <h5 class="card-title text-truncate">
               <h4><%= link_to place.name, place_path(place), class: "text-decoration-none text-dark" %></h4>
               <%= link_to place.address, place_path(place), class: "text-decoration-none text-dark" %>
@@ -73,16 +75,16 @@
             <p class="card-text text-muted mb-1">
               <%= number_to_currency(place.price, unit: "€") %> per night
             </p>
-            <%= link_to "More details", place_path(place), class: "btn btn-primary mt-2" %>
+            <%= link_to "More details", place_path(place), class: "btn btn-primary mt-auto" %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-<div class="d-flex">
+<div class="d-flex m-4">
         <!-- Mapbox Card -->
-  <div class="mapbox rounded"style="width: 600px; height: 100%;"
+  <div class="mapbox rounded sticky-top p-4" style="width: 600px; height: 100vh; flex-shrink: 0;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

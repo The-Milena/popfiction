@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <!-- Titre principal -->
   <h1 class="display-4 mb-3"><%= @place.name %></h1>
-  <p class="lead"><strong><%= @place.address%></strong></p>
+  <p class="lead"><strong><%= @place.address %></strong></p>
   <p class="lead">Hosted by <strong><%= @place.user.first_name %> <%= @place.user.last_name %></strong></p>
 
   <!-- Section principale -->
@@ -37,26 +37,29 @@
           <p><strong>Beds:</strong> <%= @place.beds %></p>
           <p><strong>Description:</strong> <%= @place.description %></p>
 
-          <!-- Bouton pour afficher le formulaire -->
-          <button class="btn btn-outline-primary w-100 mt-3" data-bs-toggle="collapse" data-bs-target="#booking-form">
-            Book this place now!
-          </button>
+          <!-- Afficher le formulaire uniquement si ce n'est pas la place de l'utilisateur -->
+          <% unless current_user == @place.user %>
+            <!-- Bouton pour afficher le formulaire -->
+            <button class="btn btn-outline-primary w-100 mt-3" data-bs-toggle="collapse" data-bs-target="#booking-form">
+              Book this place now!
+            </button>
 
-          <!-- Dropdown du formulaire -->
-          <div id="booking-form" class="collapse mt-3">
-            <%= simple_form_for [@place, @booking] do |f| %>
-              <%= f.input :date_start,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } },
-                label: "Date start *" %>
-              <%= f.input :date_end,
-                as: :string,
-                input_html: { data: { controller: "datepicker" } },
-                label: "Date end *" %>
-              <%= f.input :nb_of_guests, label: "Nb of guests *" %>
-              <%= f.submit "Submit", class: "btn btn-primary w-100 mt-3" %>
-            <% end %>
-          </div>
+            <!-- Dropdown du formulaire -->
+            <div id="booking-form" class="collapse mt-3">
+              <%= simple_form_for [@place, @booking] do |f| %>
+                <%= f.input :date_start,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } },
+                  label: "Date start *" %>
+                <%= f.input :date_end,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } },
+                  label: "Date end *" %>
+                <%= f.input :nb_of_guests, label: "Nb of guests *" %>
+                <%= f.submit "Submit", class: "btn btn-primary w-100 mt-3" %>
+              <% end %>
+            </div>
+          <% end %>
 
           <!-- Boutons pour modifier ou supprimer la place -->
           <% if current_user == @place.user %>
@@ -72,40 +75,14 @@
     </div>
   </div>
 
-  <!-- Section des réservations -->
-  <div class="mt-5">
-    <h2>Bookings</h2>
-    <% if @place.bookings.any? %>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Guests</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @place.bookings.each do |booking| %>
-            <tr>
-              <td><%= booking.date_start.strftime('%d %b %Y') %></td>
-              <td><%= booking.date_end.strftime('%d %b %Y') %></td>
-              <td><%= booking.nb_of_guests %></td>
-              <td><%= link_to "Edit", edit_booking_path(booking), class: "btn btn-sm btn-warning" %></td>
-              <td>
-                <%= link_to "X", booking_path(booking),
-                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                  class: "btn btn-sm btn-danger" %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <p>This place has no bookings yet.</p>
-    <% end %>
+  <div class="d-flex mt-5">
+  <!-- Mapbox Card -->
+  <div class="mapbox rounded sticky-top" style="width: 100%; height: 60vh; flex-shrink: 0;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
 
   <!-- Lien pour revenir à la liste des places -->
   <%= link_to "All available dream places", places_path, class: "btn btn-primary my-4" %>

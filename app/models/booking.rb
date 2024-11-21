@@ -6,4 +6,5 @@ class Booking < ApplicationRecord
   validates :date_end, comparison: { greater_than: Date.today }
   validates :date_start, comparison: { greater_than: Date.today }
   validates :nb_of_guests, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  enum :status, { pending: 0, accepted: 1, refused: 2 }
 end
