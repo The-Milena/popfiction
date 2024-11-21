@@ -1,6 +1,7 @@
 <div class="container mt-5">
   <!-- Titre principal -->
-  <h1 class="display-4 mb-3"><%= @place.address %></h1>
+  <h1 class="display-4 mb-3"><%= @place.name %></h1>
+  <p class="lead"><strong><%= @place.address%></strong></p>
   <p class="lead">Hosted by <strong><%= @place.user.first_name %> <%= @place.user.last_name %></strong></p>
 
   <!-- Section principale -->

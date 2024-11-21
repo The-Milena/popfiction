@@ -7,6 +7,7 @@ class User < ApplicationRecord
   # Relations
   has_many :bookings
   has_many :places, dependent: :destroy # Ajoute la relation avec Place
+  has_one_attached :photo
 
   # Validations
   validates :email, uniqueness: true
