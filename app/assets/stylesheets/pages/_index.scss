@@ -1,2 +1,41 @@
 // Import page-specific CSS files here.
 @import "home";
+
+$card-border-radius: 15px;
+
+#index {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    padding-top: 10px;
+}
+
+.categories-bar {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-top: 0;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.row {
+    .card {
+        background-color: rgba(255, 255, 255, 0.8); // Transparence sur fond blanc
+        border-radius: 12px; // Personnalisez si nécessaire
+        overflow: hidden; // Assurez-vous que les coins arrondis s'appliquent à tout
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    
+        
+        .carousel-inner {
+            img {
+                border-radius: $card-border-radius;
+            }
+        }
+        
+        .card-body {
+          background: none; // Pas de fond pour éviter un conflit avec le parent
+          flex-grow: 1; // Remplit l'espace restant
+        }
+  }
+}
