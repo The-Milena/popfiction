@@ -15,58 +15,89 @@
       </div>
     </div>
 
-    <div class="p-3">
-    <h2>Your bookings for your dream houses            <i class="fa-solid fa-book"></i> </h2>
-        <div class="card pb-4 pe-2 ps-2 ">
-        <table class="table table-striped">
-        <thead>
-            <tr>
-              <th>Guest </th>
-              <th>Dream House </th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Number of visitors</th>
-              <th>You have</th>
-              <th>Welcome your guests</th>
-              <th>Your dream house is not available</th>
-            </tr>
-        </thead>
-        <tbody>
-        <% @places.each do |place| %>
-        <% place.bookings.each do |booking| %>
-              <tr>
-                <td><%= booking.user.first_name%></td>
-                <td><%= booking.place.name%></td>
-                <td><%= booking.date_start.strftime('%d %b %Y') %></td>
-                <td><%= booking.date_end.strftime('%d %b %Y') %></td>
-                <td><%= booking.nb_of_guests %></td>
-                <td><strong><i><%= booking.status%></i></strong> the booking</td>
-                <td>
-                <%= link_to "Accept", accept_path(booking), class:"btn btn-success", data: { turbo_method: "PATCH", turbo_confirm: "You accepted the booking successfully!" }%>
-                </td>
-                <td>
-                <%= link_to "Refuse", refuse_path(booking), class:"btn btn-danger", data: { turbo_method: "PATCH", turbo_confirm: "You refused the booking successfully!" } %>
-                </td>
-              </tr>
-          <% end %>
-    <% end %>
-    </tbody>
-    </table>
-        </div>
-  </div>
+
   <div class="p-3">
-    <h2>Your upcoming travels                     <i class="fa-solid fa-plane-departure"></i></h2>
-  <div class="card pb-4 pe-2 ps-2 ">
-    <table class="table table-striped">
-        <thead>
+  <h2>Your bookings for your dream houses            <i class="fa-solid fa-book"></i> </h2>
+      <div class="card pb-4 pe-2 ps-2 ">
+      <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Guest </th>
+            <th>Dream House </th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Number of visitors</th>
+            <th>Car booked?</th>
+            <th>You have</th>
+            <th>Welcome your guests</th>
+            <th>Your dream house is not available</th>
+          </tr>
+      </thead>
+      <tbody>
+      <% @places.each do |place| %>
+      <% place.bookings.each do |booking| %>
             <tr>
-              <th>Dream House </th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Number of visitors</th>
-              <th>This booking is</th>
-              <th>Changes needed to booking</th>
-              <th>In case</th>
+              <td><%= booking.user.first_name%></td>
+              <td><%= booking.place.name%></td>
+              <td><%= booking.date_start.strftime('%d %b %Y') %></td>
+              <td><%= booking.date_end.strftime('%d %b %Y') %></td>
+              <td><%= booking.nb_of_guests %></td>
+              <% if booking.card_id? %>
+              <td>Yes</td>
+              <% else %>
+              <td>No</td>
+              <% end %>
+              <td><strong><i><%= booking.status%></i></strong> the booking</td>
+              <td>
+               <%= link_to "Accept", accept_path(booking), class:"btn btn-success", data: { turbo_method: "PATCH", turbo_confirm: "You accepted the booking successfully!" }%>
+              </td>
+              <td>
+              <%= link_to "Refuse", refuse_path(booking), class:"btn btn-danger", data: { turbo_method: "PATCH", turbo_confirm: "You refused the booking successfully!" } %>
+              </td>
+            </tr>
+        <% end %>
+   <% end %>
+   </tbody>
+   </table>
+      </div>
+</div>
+<div class="p-3">
+  <h2>Your upcoming travels                     <i class="fa-solid fa-plane-departure"></i></h2>
+<div class="card pb-4 pe-2 ps-2 ">
+  <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Dream House </th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Number of visitors</th>
+            <th>Car booked?</th>
+            <th>This booking is</th>
+            <th>Changes needed to booking</th>
+            <th>In case</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% @booking_travels.each do |booking| %>
+            <tr>
+              <td><%= booking.place.name%></td>
+              <td><%= booking.date_start.strftime('%d %b %Y') %></td>
+              <td><%= booking.date_end.strftime('%d %b %Y') %></td>
+              <td><%= booking.nb_of_guests %></td>
+              <% if booking.car_id? %>
+              <td>Yes</td>
+              <% else %>
+              <td>No</td>
+              <% end %>
+              <td><%= booking.status%></td>
+              <td>
+                <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-outline-dark" %>
+              </td>
+              <td>
+                <%= link_to "Cancel your reservation", booking_path(booking),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: "btn btn-outline-warning" %>
+              </td>
             </tr>
         </thead>
         <tbody>
