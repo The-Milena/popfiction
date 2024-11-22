@@ -5,43 +5,44 @@ class PlacesController < ApplicationController
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   def index
+    # Filtrer les catégories valides pour la barre
+    @categories = Place.distinct.pluck(:category).reject(&:blank?) # Exclut les catégories vides ou nil
 
-    @categories = Place.distinct.pluck(:category) # Récupère toutes les catégories uniques
     if params[:category].present?
       @places = Place.where(category: params[:category]) # Filtre les places par catégorie
     else
       @places = Place.all # Affiche toutes les places
     end
 
+    # Recherche par mots-clés
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        places.name ILIKE :query
+        OR places.description ILIKE :query
+        OR users.first_name ILIKE :query
+        OR users.last_name ILIKE :query
+      SQL
+      @places = @places.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
+    end
 
+    # Préparation des marqueurs pour Mapbox
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
         lng: place.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {place: place})
+        info_window_html: render_to_string(partial: "info_window", locals: { place: place })
       }
-    end
-
-    if params[:query].present?
-      sql_subquery = <<~SQL
-      places.name ILIKE :query
-      OR places.description ILIKE :query
-      OR users.first_name ILIKE :query
-      OR users.last_name ILIKE :query
-    SQL
-    @places = @places.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
-
     end
   end
 
   # Affiche une place spécifique
   def show
     @booking = Booking.new
-     @markers = [{
-    lat: @place.latitude,
-    lng: @place.longitude,
-    info_window_html: render_to_string(partial: "info_window", locals: { place: @place })
-  }]
+    @markers = [{
+      lat: @place.latitude,
+      lng: @place.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: { place: @place })
+    }]
   end
 
   # Affiche le formulaire pour créer une nouvelle place
@@ -97,6 +98,6 @@ class PlacesController < ApplicationController
 
   # Permet uniquement certains paramètres pour la sécurité
   def place_params
-    params.require(:place).permit(:address, :beds, :price, :description, photos:[])
+    params.require(:place).permit(:name, :address, :beds, :price, :description, :category, photos: [])
   end
 end

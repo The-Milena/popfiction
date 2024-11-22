@@ -1,15 +1,31 @@
-<%# frozen_string_literal: true %>
-<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
-  <%%= f.error_notification %>
-  <%%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= simple_form_for(@place) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-  <%- attributes.each do |attribute| -%>
-    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
-  <%- end -%>
+    <!-- Champ pour le nom de la place -->
+    <%= f.input :name, label: "Name of the Place", placeholder: "Enter the name of the place" %>
+
+    <!-- Champ pour l'adresse -->
+    <%= f.input :address, label: "Address", placeholder: "Enter the address of the place" %>
+
+    <!-- Champ pour le nombre de lits -->
+    <%= f.input :beds, label: "Number of Beds", placeholder: "Enter the number of beds" %>
+
+    <!-- Champ pour le prix -->
+    <%= f.input :price, label: "Price per Night (€)", placeholder: "Enter the price per night" %>
+
+    <!-- Champ pour la description -->
+    <%= f.input :description, label: "Description", placeholder: "Provide a brief description of the place" %>
+
+    <!-- Champ pour la catégorie -->
+    <%= f.input :category, collection: ['Cartoons & Animation', 'Fantasy Worlds', 'Horror & Mystery', 'Luxury', 'Royal Castles', 'Magical Worlds', 'Adventure & Sci-Fi'], prompt: "Select a category", label: "Category" %>
+
+    <!-- Champ pour les photos -->
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Upload Photos" %>
   </div>
 
   <div class="form-actions">
-    <%%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
-<%% end %>
+<% end %>
