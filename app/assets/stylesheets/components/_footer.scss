@@ -1,57 +1,47 @@
-/* Footer Styles */
 .footer {
-  background-color: #001f3f; /* Couleur principale du footer */
+  background-color: #001F3F; /* Couleur de fond identique à la navbar */
   color: #ffffff; /* Texte blanc */
-  padding: 20px 0;
-  text-align: center;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Ombre subtile en haut */
-}
+  padding: 20px 0; /* Espacement vertical */
+  font-size: 14px;
 
-/* Contenu du footer */
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px; /* Espacement entre les éléments */
-}
-
-/* Section des liens sociaux */
-.social-links {
-  display: flex;
-  gap: 15px; /* Espacement entre les icônes */
-}
-
-.social-icon {
-  color: #ffffff; /* Couleur blanche */
-  font-size: 20px;
-  transition: color 0.3s ease;
-}
-
-.social-icon:hover {
-  color: #ff4757; /* Couleur au survol */
-}
-
-/* Navigation dans le footer */
-.footer-nav {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Espacement entre les liens */
-}
-
-.footer-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-  color: #ff4757; /* Couleur au survol */
-}
-
-/* Responsiveness */
-@media (max-width: 576px) {
   .footer-content {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .social-links {
+      a {
+        color: #ffffff; /* Icônes en blanc */
+        margin: 0 10px;
+        font-size: 20px;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: #FFD700; /* Couleur dorée au survol */
+        }
+      }
+    }
+
+    .footer-nav {
+      a {
+        color: #ffffff; /* Liens en blanc */
+        margin: 0 10px;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: #FFD700; /* Couleur dorée au survol */
+        }
+      }
+
+      span {
+        color: #ffffff; /* Séparateurs en blanc */
+      }
+    }
+
+    p {
+      margin: 0; /* Supprime l’espacement par défaut */
+    }
   }
 }

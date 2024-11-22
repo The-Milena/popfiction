@@ -1,13 +1,65 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  
-}
+  justify-content: space-between; /* Ajoute un fond dégradé élégant */
+  padding: 0.5rem 1rem; /* Espacement interne */
+  background-color: #001F3F;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .navbar-brand {
+    display: flex;
+    align-items: center;
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+    img {
+      width: 50px; /* Réduit la taille du logo */
+      height: auto; /* Garde les proportions */
+      margin-right: 10px; /* Espace entre le logo et le texte */
+      border-radius: 8px; /* Ajoute des coins arrondis pour un effet plus propre */
+    }
+
+    .brand-text {
+      color: #ffffff; /* Texte en blanc */
+      font-weight: bold;
+      font-size: 1.2rem; /* Taille du texte */
+    }
+  }
+
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5); /* Couleur blanche semi-transparente */
+  }
+
+  .nav-link {
+    color: #ffffff; /* Texte des liens en blanc */
+    font-weight: 500;
+    margin: 0 10px; /* Espacement entre les liens */
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #00d4ff; /* Couleur au survol */
+    }
+
+    &.active {
+      color: #00d4ff; /* Couleur pour le lien actif */
+      font-weight: bold;
+    }
+  }
+
+  .dropdown-toggle {
+    color: #ffffff; /* Couleur blanche pour l'avatar */
+    background-color: transparent; /* Pas de fond */
+    border: none; /* Pas de bordure */
+  }
+
+  .dropdown-menu {
+    background-color: #1a1a40; /* Fond sombre */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+
+    .dropdown-item {
+      color: #ffffff; /* Texte en blanc */
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #00d4ff; /* Fond bleu au survol */
+        color: #000000; /* Texte noir sur fond bleu */
+      }
+    }
+  }
 }
