@@ -84,20 +84,23 @@
     </div>
   </div>
 
-  <div class="popup <%= "d-none" unless @display_popup %>" data-controller="popup" data-popup-target= "root">
+  <div class="popup rounded <%= "d-none" unless @display_popup %>" data-controller="popup" data-popup-target= "root">
     <div class="my-popup-background"></div>
-      <div data-popup-target="content" class="my-popup-content">
+      <div data-popup-target="content" class="my-popup-content rounded">
         <div class="my-popup-close-btn-wrapper">
-          <%= link_to "X", place_path(@place), class:"my-popup-close-btn" %>
+          <%= link_to "No, thanks !", place_path(@place), class:"my-popup-close-btn btn-custom text-decoration-none " %>
         </div>
           <% @cars.each do |car| %>
-            <div class="card-product p-1 m-1">
-              <%= image_tag car.photo, class: "" %>
-              <div class="card-product-infos">
+            <div class="card-product p-1 m-2 d-flex justify-content-between rounded">
+              <div class="div">
+                <%= image_tag car.photo, class: "" %>
+              </div>
+              <div class="div card-product-infos text-center">
                 <h2><%= car.name %></h2>
-                <p><%= car.price %></p>
-
-                  <%= link_to "Rent this car !", add_car_path(current_user.bookings.last || 1, car_id: car.id), data: { turbo_method: :patch }, class: "btn btn-primary" %>
+                <p><%= "#{car.price} €" %></p>
+              </div>
+              <div class="div card-product-infos">
+                <%= link_to "Rent this car !", add_car_path(current_user.bookings.last || 1, car_id: car.id), data: { turbo_method: :patch }, class: "btn btn-custom rounded" %>
               </div>
             </div>
           <% end %>

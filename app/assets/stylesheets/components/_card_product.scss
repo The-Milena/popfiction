@@ -10,7 +10,7 @@
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 160px;
   object-fit: cover;
 }
 
@@ -30,4 +30,14 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.btn-custom {
+  background-color: #001F3F; /* Remplacez par la couleur souhaitée */
+  color: white; /* Couleur du texte */
+  border: none; /* Retirer la bordure si nécessaire */
+}
+
+.btn-custom:hover {
+  background-color: #3A6D8C; /* Couleur au survol */
 }

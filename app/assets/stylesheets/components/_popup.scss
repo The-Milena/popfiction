@@ -7,6 +7,7 @@
   right: 0;
   bottom: 0;
   transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  length: 300px;
 }
 
 .popup {
@@ -37,15 +38,18 @@
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 100px;
+  top: 80px;
   width: 630px;
   background: white;
   padding: 10px;
+  padding-bottom: 60px;
 }
 
 .my-popup-close-btn-wrapper {
   display: flex;
-  justify-content: end;
+  position: absolute;
+  bottom: 14px;
+  right: 42px;
 }
 
 .my-popup-close-btn {
@@ -53,11 +57,10 @@
   border: 0px;
   padding: 5px 10px;
   border-radius: 4px;
+
 }
 
 .my-popup-close-btn:hover {
   cursor: pointer;
   background: #dbdbdb;
 }
-
-
