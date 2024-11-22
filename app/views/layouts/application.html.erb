@@ -12,8 +12,12 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <%= render "layouts/navbar" %>
+    <% unless controller_name == 'pages' && action_name == 'home' %>
+      <%= render "layouts/navbar" %>
+    <% end %>
+
     <%= yield %>
+
     <% unless controller_name == 'pages' && action_name == 'home' %>
       <%= render 'layouts/footer' %>
     <% end %>
