@@ -1,67 +1,56 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
+<nav class="navbar navbar-expand-lg navbar-lewagon py-3">
   <div class="container-fluid">
-    <div class="div navbar-brand d-flex">
-      <%= link_to root_path do %>
-        <%=image_tag("PopFiction.png", alt: "Example Image")%>
-      <% end %>
-      <div class="fw-bold mt-2">PopFiction</div>
-    </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Logo -->
+    <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
+      <%# <%= image_tag "PopFiction.png", alt: "PopFiction Logo", class: "navbar-logo me-2" %>
+      <span class="fw-bold text-white">PopFiction</span>
+    <% end %>
+
+    <!-- Menu toggle pour mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- Liens de navigation -->
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
-          <% if user_signed_in? %>
-          <li class="nav-item fs-4 me-4" > Hi, <%= current_user.first_name %></li>
-          <% else %>
-          <% end %>
-          <li class="nav-item active">
-            <a class="nav-link" href= "http://127.0.0.1:3000/places">Home</a>
+        <% if user_signed_in? %>
+          <li class="nav-item fs-5 me-4 text-light d-flex align-items-center">
+            Hi, <strong><%= current_user.first_name %></strong>
+          </li>
+        <% end %>
+        <li class="nav-item">
+          <%= link_to "Home", places_path, class: "text-white nav-link #{controller_name == 'places' && action_name == 'index' ? 'active' : ''}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Messages", "#", class: "nav-link" %>
+        </li>
+      </ul>
+
+      <!-- Dropdown pour l'utilisateur -->
+      <ul class="navbar-nav ms-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= cl_image_tag current_user.photo.key, alt: "User Avatar", class: "avatar rounded-circle me-2" %>
+              <span><%= current_user.first_name %></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+              <li><%= link_to "Your Dashboard", dashboard_path, class: "dropdown-item" %></li>
+              <li><%= link_to "New Place", new_place_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            </ul>
+          </li>
+        <% else %>
+          <!-- Si l'utilisateur n'est pas connecté -->
+          <li class="nav-item">
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-light me-2" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
           </li>
-          <li class="nav-item dropdown">
-            <% if user_signed_in? %>
-              <%=cl_image_tag current_user.photo.key ,
-                           alt: "Example Image",
-                           class: "avatar dropdown-toggle",
-                           id: "navbarDropdown",
-                           aria: {
-                             haspopup: true,
-                             expanded: false
-                           },
-                           data: {
-                             bs_toggle: "dropdown"
-                           } %>
-            <% else %>
-              <%=image_tag "user.png",
-                           alt: "Example Image",
-                           class: "avatar dropdown-toggle",
-                           id: "navbarDropdown",
-                           aria: {
-                             haspopup: true,
-                             expanded: false
-                           },
-                           data: {
-                             bs_toggle: "dropdown"
-                           } %>
-            <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <% if user_signed_in? %>
-                <%= link_to "Your dashboard", dashboard_path, class: "dropdown-item" %>
-                <%= link_to "New place", new_place_path, class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-              <% else %>
-                <%= link_to "Log in", new_user_session_path, class: "dropdown-item" %>
-                <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %>
-              <% end %>
-            </div>
-          </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
+        <% end %>
       </ul>
     </div>
   </div>
-</div>
+</nav>
