@@ -7,6 +7,16 @@ $card-border-radius: 15px;
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     padding-top: 10px;
+
+    .btn-custom {
+        background-color: #001F3F; /* Remplacez par la couleur souhaitée */
+        color: white; /* Couleur du texte */
+        border: none; /* Retirer la bordure si nécessaire */
+      }
+      
+      .btn-custom:hover {
+        background-color: #3A6D8C; /* Couleur au survol */
+      }
 }
 
 .categories-bar {
@@ -16,6 +26,8 @@ $card-border-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
 
 
 .row {
@@ -37,5 +49,15 @@ $card-border-radius: 15px;
           background: none; // Pas de fond pour éviter un conflit avec le parent
           flex-grow: 1; // Remplit l'espace restant
         }
+
+        .btn-custom {
+            background-color: #001F3F; /* Remplacez par la couleur souhaitée */
+            color: white; /* Couleur du texte */
+            border: none; /* Retirer la bordure si nécessaire */
+          }
+          
+          .btn-custom:hover {
+            background-color: #3A6D8C; /* Couleur au survol */
+          }
   }
 }

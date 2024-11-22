@@ -35,7 +35,7 @@
               class: "form-control",
               placeholder: "Find your next dream vacation"
           %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Search", name: "", class: "btn btn-custom" %>
       <% end %>
 
 
@@ -79,7 +79,7 @@
                 <p class="card-text text-muted mb-1">
                   <%= number_to_currency(place.price, unit: "€") %> per night
                 </p>
-                <%= link_to "More details", place_path(place), class: "btn btn-primary mt-auto" %>
+                <%= link_to "More details", place_path(place), class: "btn btn-custom mt-auto" %>
               </div>
             </div>
           </div>
