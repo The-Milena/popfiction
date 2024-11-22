@@ -97,7 +97,7 @@ place1 = Place.create!(
   price: 27389,
   category: "Cartoons & Animation",
   user: user1,
-  description: "Charmante maison familiale à Springfield, avec 4 chambres, salon spacieux, cuisine vintage et jardin accueillant. Idéale pour des vacances fun en famille !"
+  description: "Charming family home in Springfield, with 4 bedrooms, spacious living room, vintage kitchen and welcoming garden. Ideal for a fun family holiday!"
 )
 
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022767/Simpson1_we1tla.png").open
@@ -109,12 +109,12 @@ place1.photos.attach(io: file, filename: "simpson2.png", content_type: "image/pn
 # Hobbit
 place2 = Place.create!(
   name: "Bilbo's House",
-  address: "501 Buckland Road, Matamata 3472, Nouvelle-Zélande",
+  address: "501 Buckland Road, Matamata 3472, New Zealand",
   beds: 2,
   price: 324,
   category: "Fantasy Worlds",
   user: user2,
-  description: "Charmante maison troglodyte à Hobbiton, avec 1 chambre cosy, un salon confortable, une cuisine rustique et un jardin verdoyant. Idéale pour une retraite paisible au cœur de la Terre du Milieu !"
+  description: "Traditional troglodyte house in Hobbiton, with 1 cosy bedroom, a comfortable living room, a rustic kitchen and a leafy garden. Ideal for a peaceful retreat in the heart of Middle-earth!"
 )
 
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022686/Hobbit1_ezfnls.png").open
@@ -130,12 +130,12 @@ place2.photos.attach(io: file, filename: "hobbit4.png", content_type: "image/png
 # Ghostbusters
 place3 = Place.create!(
   name: "Ghostbusters' Headquarters",
-  address: "14 N Moore St TriBeCa, New York, NY 10013-2413",
+  address: "14 N Moore St TriBeCa, New York, NY 10013-2413, USA",
   beds: 10,
   price: 12734,
   category: "Horror & Mystery",
   user: user3,
-  description: "Ancienne caserne de pompiers à New York, transformée en quartier général des Ghostbusters. Espaces spacieux, décor unique, et équipements modernes. Parfait pour les amateurs de paranormal et les aventuriers urbains !"
+  description: "A former fire station in New York, transformed into the Ghostbusters headquarters. Spacious rooms, unique decor and modern facilities. Perfect for paranormal enthusiasts and urban adventurers!"
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022764/Ghostbuster1_cwera8.jpg").open
 place3.photos.attach(io: file, filename: "ghostbuster1.png", content_type: "image/png")
@@ -143,12 +143,12 @@ place3.photos.attach(io: file, filename: "ghostbuster1.png", content_type: "imag
 # Addams
 place4 = Place.create!(
   name: "The Addams' Manor",
-  address: "E. Grand St., Palatine Bridge, New York",
+  address: "E. Grand St., Palatine Bridge, New York, USA",
   beds: 5,
   price: 2178,
   category: "Horror & Mystery",
   user: user4,
-  description: "Maison gothique et mystérieuse, spacieuse avec 5 chambres, un salon extravagant, et un jardin énigmatique. Idéale pour les amateurs de l'étrange et de l’inattendu."
+  description: "Spacious, mysterious Gothic house with 5 bedrooms, extravagant lounge and enigmatic garden. Ideal for lovers of the strange and unexpected."
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022762/Addams1_ae8l8a.jpg").open
 place4.photos.attach(io: file, filename: "addams1.png", content_type: "image/png")
@@ -161,7 +161,7 @@ place5 = Place.create!(
   price: 10245,
   category: "Royal Castles",
   user: user5,
-  description: "Splendide château de conte de fées, avec chambres élégantes, grandes salles et jardins féériques. Lieu magique pour une expérience royale inoubliable."
+  description: "Splendid fairytale castle, with elegant rooms, grand halls and enchanting gardens. A magical setting for an unforgettable royal experience."
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/Disney1_nuigxk.jpg").open
 place5.photos.attach(io: file, filename: "cendrillon1.png", content_type: "image/png")
@@ -171,12 +171,12 @@ place5.photos.attach(io: file, filename: "cendrillon2.png", content_type: "image
 # Ken
 place6 = Place.create!(
   name: "Ken's Villa",
-  address: "23825 Stuart Ranch Rd, Malibu, CA 90265, États-Unis",
+  address: "23825 Stuart Ranch Rd, Malibu, CA 90265, United States",
   beds: 6,
   price: 18984,
   category: "Luxury",
   user: user6,
-  description: "Maison stylée de Ken, avec une grande piscine, un espace barbecue parfait pour des soirées entre amis. Ambiance chic et décontractée garantie !"
+  description: "Ken's stylish house, with a large swimming pool and barbecue area perfect for evenings out with friends. A chic, relaxed atmosphere guaranteed!"
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022765/Ken1_ylctp0.png").open
 place6.photos.attach(io: file, filename: "ken1.png", content_type: "image/png")
@@ -189,12 +189,12 @@ place6.photos.attach(io: file, filename: "ken3.png", content_type: "image/png")
 # Barbie
 place7 = Place.create!(
   name: "Barbie's Dreamhouse",
-  address: "23835 Stuart Ranch Rd, Malibu, CA 90265, États-Unis",
+  address: "23835 Stuart Ranch Rd, Malibu, CA 90265, United States",
   beds: 6,
   price: 22456,
   category: "Luxury",
   user: user6,
-  description: "Maison glam et colorée de Barbie, avec piscine, salon élégant, cuisine moderne et jardin vibrant. Un séjour féérique et chic dans un cadre de rêve !"
+  description: "Barbie's glamorous, colourful home, with swimming pool, elegant living room, modern kitchen and vibrant garden. A magical, chic stay in a dream setting!"
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022762/Barbie1_tssbvs.png").open
 place7.photos.attach(io: file, filename: "barbie1.png", content_type: "image/png")
@@ -206,12 +206,12 @@ place7.photos.attach(io: file, filename: "barbie3.png", content_type: "image/png
 # Shrek
 place8 = Place.create!(
   name: "Shrek's Swamp",
-  address: "Tomintoul, Ballindalloch AB37 9HU, Royaume-Uni",
+  address: "Tomintoul, Ballindalloch AB37 9HU, United Kingdom",
   beds: 2,
   price: 32,
   category: "Fantasy Worlds",
   user: user7,
-  description: "Charmante maison en boue à la campagne, avec salon cosy, cuisine rustique et grand jardin. Idéale pour un séjour tranquille et naturel, loin de la ville."
+  description: "Charming mud house in the countryside, with cosy living room, rustic kitchen and large garden. Ideal for a peaceful, natural break away from the city."
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732096686/Shrek1_ebrjzi.jpg").open
 place8.photos.attach(io: file, filename: "shrek1.png", content_type: "image/png")
@@ -225,12 +225,12 @@ place8.photos.attach(io: file, filename: "shrek4.png", content_type: "image/png"
 # Downtown Abbey
 place9 = Place.create!(
   name: "Downtown Abbey Castle",
-  address: "Highclere Park, Highclere, Newbury RG20 9RN, Royaume-Uni",
+  address: "Highclere Park, Highclere, Newbury RG20 9RN, United Kingdom",
   beds: 20,
   price: 29753,
   category: "Royal Castles",
   user: user8,
-  description: "Élégant château à l'ancienne, avec chambres luxueuses, salons raffinés et jardins immaculés. Vivez une expérience aristocratique dans un cadre historique et somptueux."
+  description: "An elegant, old-fashioned château with luxurious rooms, refined salons and immaculate gardens. Enjoy an aristocratic experience in a sumptuous, historic setting."
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022763/Downtown1_vbdqbk.jpg").open
 place9.photos.attach(io: file, filename: "downtown1.png", content_type: "image/png")
@@ -245,12 +245,12 @@ place9.photos.attach(io: file, filename: "downtown4.png", content_type: "image/p
 # Hogwarts
 place10 = Place.create!(
   name: "Hogwarts",
-  address: "Dornie, Kyle of Lochalsh IV40 8DX, Royaume-Uni",
+  address: "Dornie, Kyle of Lochalsh IV40 8DX, United Kingdom",
   beds: 280,
   price: 37823,
   category: "Magical Worlds",
   user: user9,
-  description: "Château majestueux avec salles vastes, chambres secrètes, et jardins enchâssés. Un lieu enchanteur pour un séjour unique au cœur de la magie et du mystère."
+  description: "A majestic castle with vast rooms, secret chambers and enchanted gardens. An enchanting setting for a unique stay at the heart of magic and mystery."
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022765/Hogwart1_tpltj3.jpg").open
 place10.photos.attach(io: file, filename: "poudlard1.png", content_type: "image/png")
@@ -262,12 +262,12 @@ place10.photos.attach(io: file, filename: "poudlard3.png", content_type: "image/
 # Tatooine
 place11 = Place.create!(
   name: "Luke's Desert Home",
-  address: "Hôtel Dakyanus, Route El Ferch BP 234, C207, Tataouine 3200, Tunisie",
+  address: "Hôtel Dakyanus, Route El Ferch BP 234, C207, Tataouine 3200, Tunisia",
   beds: 4,
   price: 156,
   category: "Adventure & Sci-Fi",
   user: user10,
-  description: "Maison troglodyte unique sur Tatouine, avec vues imprenables, espace spacieux et ambiance désertique. Parfaite pour une retraite isolée sous deux soleils."
+  description: "Unique troglodyte house on Tatouine, with breathtaking views, spacious accommodation and desert ambience. Perfect for a secluded retreat under two suns."
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022766/Luke1_czhvm5.jpg").open
 place11.photos.attach(io: file, filename: "luke1.png", content_type: "image/png")
@@ -279,12 +279,12 @@ place11.photos.attach(io: file, filename: "luke3.png", content_type: "image/png"
 # Breaking Bad
 place12 = Place.create!(
   name: "Walter's RV",
-  address: "1 Civic Plz NW, Albuquerque, NM 87102, États-Unis",
+  address: "1 Civic Plz NW, Albuquerque, NM 87102, USA",
   beds: 2,
   price: 184,
   category: "Adventure & Sci-Fi",
   user: user11,
-  description: "Caravane vintage et authentique, avec espace cosy, cuisine équipée et vue désertique. Parfaite pour les amateurs d'aventure et de science !"
+  description: "Authentic vintage caravan, with cosy space, fully equipped kitchen and desert views. Perfect for adventure and science lovers!"
 )
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022685/BreakingBad1_re6ofx.jpg").open
 place12.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
