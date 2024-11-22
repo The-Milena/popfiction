@@ -24,6 +24,7 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Number of visitors</th>
+            <th>Car booked?</th>
             <th>You have</th>
             <th>Welcome your guests</th>
             <th>Your dream house is not available</th>
@@ -38,6 +39,11 @@
               <td><%= booking.date_start.strftime('%d %b %Y') %></td>
               <td><%= booking.date_end.strftime('%d %b %Y') %></td>
               <td><%= booking.nb_of_guests %></td>
+              <% if booking.card_id? %>
+              <td>Yes</td>
+              <% else %>
+              <td>No</td>
+              <% end %>
               <td><strong><i><%= booking.status%></i></strong> the booking</td>
               <td>
                <%= link_to "Accept", accept_path(booking), class:"btn btn-success", data: { turbo_method: "PATCH", turbo_confirm: "You accepted the booking successfully!" }%>
@@ -62,6 +68,7 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Number of visitors</th>
+            <th>Car booked?</th>
             <th>This booking is</th>
             <th>Changes needed to booking</th>
             <th>In case</th>
@@ -74,6 +81,11 @@
               <td><%= booking.date_start.strftime('%d %b %Y') %></td>
               <td><%= booking.date_end.strftime('%d %b %Y') %></td>
               <td><%= booking.nb_of_guests %></td>
+              <% if booking.car_id? %>
+              <td>Yes</td>
+              <% else %>
+              <td>No</td>
+              <% end %>
               <td><%= booking.status%></td>
               <td>
                 <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-outline-dark" %>
