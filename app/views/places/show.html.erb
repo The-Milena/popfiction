@@ -1,3 +1,4 @@
+
 <div id="show">
 
   <div class="container">
@@ -88,7 +89,6 @@
 
 
   <div class="popup rounded <%= "d-none" unless @display_popup %>" data-controller="popup" data-popup-target= "root">
-    <div class="my-popup-background"></div>
       <div data-popup-target="content" class="my-popup-content rounded">
         <div class="my-popup-close-btn-wrapper">
           <%= link_to "No, thanks !", place_path(@place), class:"my-popup-close-btn btn-custom text-decoration-none " %>
@@ -105,12 +105,11 @@
               <div class="div card-product-infos">
                 <%= link_to "Rent this car !", add_car_path(current_user.bookings.last || 1, car_id: car.id), data: { turbo_method: :patch }, class: "btn btn-custom rounded" %>
               </div>
-            <% end %>
-        </div>
+            </div>
+          <% end %>
       </div>
-    </div>
-
-    <!-- Lien pour revenir à la liste des places -->
-    <%= link_to "All available dream places", places_path, class: "btn btn-primary my-4" %>
   </div>
+    <div class=>
+    <%= link_to "All available dream places", places_path, class: "btn btn-primary my-4" %>
+    </div><!-- Lien pour revenir à la liste des places -->
 </div>
