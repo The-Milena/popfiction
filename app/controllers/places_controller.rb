@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   # Vérifie que l'utilisateur est connecté pour les actions sensibles
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 

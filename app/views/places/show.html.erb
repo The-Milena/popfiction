@@ -96,10 +96,8 @@
               <div class="card-product-infos">
                 <h2><%= car.name %></h2>
                 <p><%= car.price %></p>
-                <div class="btn btn-primary">
-                  Rent this car !
-                  <%= link_to "", add_car_path(current_user.bookings.last, car_id: car.id), data: { turbo_method: :patch } %>
-                </div>
+
+                  <%= link_to "Rent this car !", add_car_path(current_user.bookings.last || 1, car_id: car.id), data: { turbo_method: :patch }, class: "btn btn-primary" %>
               </div>
             </div>
           <% end %>
