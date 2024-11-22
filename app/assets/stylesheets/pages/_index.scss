@@ -32,11 +32,10 @@ $card-border-radius: 15px;
 
 .row {
     .card {
-        background-color: rgba(255, 255, 255, 0.8); // Transparence sur fond blanc
+        background-color: rgba(255, 255, 255, 0.7); // Transparence sur fond blanc
         border-radius: 12px; // Personnalisez si nécessaire
         overflow: hidden; // Assurez-vous que les coins arrondis s'appliquent à tout
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.5);
     
         
         .carousel-inner {
@@ -46,7 +45,7 @@ $card-border-radius: 15px;
         }
         
         .card-body {
-          background: none; // Pas de fond pour éviter un conflit avec le parent
+          background: transparent; // Pas de fond pour éviter un conflit avec le parent
           flex-grow: 1; // Remplit l'espace restant
         }
 
