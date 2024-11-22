@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @user_id = current_user
     @booking.user = @user_id
     if @booking.save
-      redirect_to place_path(@place)
+      redirect_to place_path(@place, popup: true)
     else
       render "places/show", status: :unprocessable_entity
     end
@@ -32,8 +32,18 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
+
     @booking.save
     redirect_to place_path(@booking.place)
+  end
+
+  def add_car
+    @booking = Booking.find(params[:id])
+    @booking.car = Car.find(params[:car_id]) if params[:car_id]
+    if @booking.save
+      redirect_to dashboard_path
+    end
+
   end
 
   def destroy

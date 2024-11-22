@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :places do
     resources :bookings, only: [:new, :create]
-
   end
+
+
     resources :bookings, only: [:destroy, :edit, :update, :show]
     patch "bookings/:id/accept", to: "bookings#accept", as: :accept
+    patch "bookings/:id/add_car", to: "bookings#add_car", as: :add_car
     patch "bookings/:id/refuse", to: "bookings#refuse", as: :refuse
     get "users/dashboard", to: "pages#dashboard", as: :dashboard
 end

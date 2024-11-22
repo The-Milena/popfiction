@@ -49,6 +49,7 @@ puts "Starting seed deployment..."
 #user10 = User.create(first_name:"Luke", last_name: "Skywalker", email:"luke.skywalker@gmail.com", password:"azerty")
 #user11 = User.create(first_name:"Walter", last_name: "White", email:"walter.white@gmail.com", password:"azerty")
 
+puts "Starting User seed deployment..."
 
 user1 = User.create(first_name:"Homer", last_name:"Simpson", email:"homer.simpson@gmail.com", password:"azerty")
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113961/simpsons-live_q9wvpo.jpg").open
@@ -84,6 +85,7 @@ user11 = User.create(first_name:"Walter", last_name: "White", email:"walter.whit
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732113897/b51190101362045.5f1d68546ac50_dclxph.jpg").open
 user11.photo.attach(io: file, filename: "Walter.png", content_type: "image/png")
 
+puts "Starting Places seed deployment..."
 
 #file = URI.parse("https://preview.redd.it/irl-simpsons-house-v0-cg4fasthv5ya1.jpeg?width=1920&format=pjpg&auto=webp&s=395f2a53aab9b262211b71742ecad4f5656d5365").open
 #list = Place.create(address: "742 Evergreen Terrace, Springfield, Oregon, USA", beds: 4, price:273, user_id: 3, description:"Charmante maison familiale à Springfield, avec 4 chambres, salon spacieux, cuisine vintage et jardin accueillant. Idéale pour des vacances fun en famille !" )
@@ -289,5 +291,39 @@ place12 = Place.create!(
 file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732022685/BreakingBad1_re6ofx.jpg").open
 place12.photos.attach(io: file, filename: "breakingbad.png", content_type: "image/png")
 
+puts "Starting Cars seed deployment..."
+
+car1 = Car.create!(
+  name: "Delorean",
+  description: "This DeLorean is a futuristic car modified into a time machine, equipped with a flux capacitor and powered by plutonium or a 1.21 gigawatt generator.",
+  price: 297
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/dolorean_fik8dm.png").open
+car1.photo.attach(io: file, filename: "DeLorean.png", content_type: "image/png")
+
+car2 = Car.create!(
+  name: "Ford Explorer",
+  description: "This Ford Explorer is a rugged vehicle with a unique design, combining style and performance. With its vibrant colors and iconic logo, it takes you straight into the world of the famous park. Ideal for modern adventurers, it blends comfort and power while offering an unforgettable look.",
+  price: 297
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/71rOl5ZIqDL_skv5lx.jpg").open
+car2.photo.attach(io: file, filename: "jurassicpark.png", content_type: "image/png")
+
+car3 = Car.create!(
+  name: "Batmobile",
+  description: "The Batmobile, Batman's legendary vehicle, combines power, futuristic technology, and unique design. It embodies elegance and performance, ready to race through the streets to fight crime. Equipped with sophisticated weaponry, high-tech gadgets, and an imposing silhouette, it's the ultimate superhero car.",
+  price: 297
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181265/1989-Batmobile_gieo4e.jpg").open
+car3.photo.attach(io: file, filename: "batmobile.png", content_type: "image/png")
+
+
+car4 = Car.create!(
+  name: "Van Mystery Machine",
+  description: "This iconic van that’s instantly recognizable. With its vibrant green and orange design, it’s the perfect vehicle for the Mystery Inc. team. Spacious and quirky, it embodies the fun, adventurous spirit of the classic animated series. Equipped for mystery-solving and always ready for action, this van is a nostalgic ride full of charm and character!",
+  price: 297
+)
+file = URI.parse("https://res.cloudinary.com/dppoooykd/image/upload/v1732181266/replique-scooby-doo-mistery-machine-van-oc-db4c_oapuue.jpg").open
+car4.photo.attach(io: file, filename: "ScoobyDoo.png", content_type: "image/png")
 
 puts "seeding finished !  "

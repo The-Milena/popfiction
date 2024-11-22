@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :place
   belongs_to :user
+  belongs_to :car, optional: true
   validates :date_end, :date_start, presence: true
   validates :date_end, comparison: { greater_than: :date_start }
   validates :date_end, comparison: { greater_than: Date.today }
