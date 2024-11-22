@@ -88,14 +88,18 @@
     <div class="my-popup-background"></div>
       <div data-popup-target="content" class="my-popup-content">
         <div class="my-popup-close-btn-wrapper">
-          <button data-action="click->popup#closePopup" class="my-popup-close-btn">✕</button>
+          <%= link_to "X", place_path(@place), class:"my-popup-close-btn" %>
         </div>
           <% @cars.each do |car| %>
             <div class="card-product p-1 m-1">
-              <%= image_tag car.photo, class: "d-block w-30 rounded" %>
+              <%= image_tag car.photo, class: "" %>
               <div class="card-product-infos">
                 <h2><%= car.name %></h2>
                 <p><%= car.price %></p>
+                <div class="btn btn-primary">
+                  Rent this car !
+                  <%= link_to "", add_car_path(current_user.bookings.last, car_id: car.id), data: { turbo_method: :patch } %>
+                </div>
               </div>
             </div>
           <% end %>

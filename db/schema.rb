@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_22_100459) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
-    t.bigint "car_id", null: false
+    t.bigint "car_id"
     t.index ["car_id"], name: "index_bookings_on_car_id"
     t.index ["place_id"], name: "index_bookings_on_place_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
