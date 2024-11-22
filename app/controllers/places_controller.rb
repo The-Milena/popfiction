@@ -36,6 +36,7 @@ class PlacesController < ApplicationController
 
   # Affiche une place spécifique
   def show
+    @cars = Car.new
     @booking = Booking.new
      @markers = [{
     lat: @place.latitude,
