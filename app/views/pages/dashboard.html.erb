@@ -4,10 +4,10 @@
 
   <div class="p-3">
     <h3>Your dream homes online                    <i class="fa-solid fa-house"></i> </h3>
-    <div class="card p-2 btn btn-outline-primary" style="width: 18rem;">
+    <div class="card p-2 btn btn-light" style="width: 18rem;">
           <% @places.each do |place| %>
         <i class="">
-          <%= link_to "#{place.name}", place_path(place), class:"link-offset-2 link-underline link-underline-opacity-0 fs-5 fw-lighter text-black font-style-normal" %>
+          <%= link_to "#{place.name}", place_path(place), class:"link-offset-2 link-underline link-underline-opacity-0 fs-5 fw-lighter text-black fst-normal" %>
         </i>
       <% end %>
     </div>
