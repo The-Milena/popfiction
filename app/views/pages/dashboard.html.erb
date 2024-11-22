@@ -1,17 +1,20 @@
-<div class="container m-4">
+<div id="dashboard">
 
-  <h1>Hello, <strong> <%= current_user.first_name %> <%= current_user.last_name %> </strong></h1>
+  <div class="containerc">
 
-  <div class="p-3">
-    <h3>Your dream homes online                    <i class="fa-solid fa-house"></i> </h3>
-    <div class="card p-2 btn btn-light" style="width: 18rem;">
-          <% @places.each do |place| %>
-        <i class="">
-          <%= link_to "#{place.name}", place_path(place), class:"link-offset-2 link-underline link-underline-opacity-0 fs-5 fw-lighter text-black fst-normal" %>
-        </i>
-      <% end %>
+    <h1>Hello, <strong> <%= current_user.first_name %> <%= current_user.last_name %> </strong></h1>
+
+    <div class="p-3">
+      <h3>Your dream homes online                    <i class="fa-solid fa-house"></i> </h3>
+      <div class="card p-2 btn btn-light" style="width: 18rem;">
+            <% @places.each do |place| %>
+          <i class="">
+            <%= link_to "#{place.name}", place_path(place), class:"link-offset-2 link-underline link-underline-opacity-0 fs-5 fw-lighter text-black fst-normal" %>
+          </i>
+        <% end %>
+      </div>
     </div>
-  </div>
+
 
   <div class="p-3">
   <h2>Your bookings for your dream houses            <i class="fa-solid fa-book"></i> </h2>
@@ -96,9 +99,28 @@
                   class: "btn btn-outline-warning" %>
               </td>
             </tr>
-        <% end %>
-       </tbody>
-      </table>
+        </thead>
+        <tbody>
+          <% @booking_travels.each do |booking| %>
+              <tr>
+                <td><%= booking.place.name%></td>
+                <td><%= booking.date_start.strftime('%d %b %Y') %></td>
+                <td><%= booking.date_end.strftime('%d %b %Y') %></td>
+                <td><%= booking.nb_of_guests %></td>
+                <td><%= booking.status%></td>
+                <td>
+                  <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-outline-dark" %>
+                </td>
+                <td>
+                  <%= link_to "Cancel your reservation", booking_path(booking),
+                    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                    class: "btn btn-outline-warning" %>
+                </td>
+              </tr>
+          <% end %>
+        </tbody>
+        </table>
+    </div>
   </div>
-</div>
+  </div>
 </div>
