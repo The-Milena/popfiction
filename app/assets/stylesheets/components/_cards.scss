@@ -23,8 +23,6 @@
   margin-bottom: 2rem; /* Espace en dessous */
 }
 
-
-
 .img-fixed {
   height: 200px; /* Hauteur fixe pour toutes les images */
   object-fit: cover; /* Assure que l'image reste proportionnelle */
@@ -48,13 +46,28 @@
   border-radius: 10px; /* Coins arrondis */
 }
 
-/* Scoper uniquement les styles pour la page d'accueil */
+/* Empêche le défilement uniquement sur la page d'accueil */
+body.pages.home {
+  height: 100%; /* Assure que le body occupe 100% de la hauteur */
+  margin: 0; /* Supprime les marges */
+  overflow: hidden; /* Empêche le défilement */
+}
+
+/* Permet le défilement sur toutes les autres pages */
+body:not(.pages.home) {
+  overflow: auto; /* Permet le défilement */
+}
+
+/* Styles pour la page d'accueil */
 #homepage {
   height: 100vh; /* 100% de la hauteur de la fenêtre */
-  overflow: hidden; /* Empêche le défilement */
-  background: radial-gradient(circle, rgba(255,0,132,0.3), rgba(0,0,0,1));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Empêche le défilement localement */
+  background: radial-gradient(circle, rgba(255, 0, 132, 0.3), rgba(0, 0, 0, 1));
   // background: radial-gradient(circle at top, #1a1a40, #000000);
-
 }
 
 #homepage img {
@@ -71,6 +84,7 @@
   color: #333;
 }
 
+/* Animation pour le formulaire de réservation */
 #booking-form {
   transition: height 0.3s ease, opacity 0.3s ease;
 }
@@ -83,6 +97,7 @@
   opacity: 0;
 }
 
+/* Styles pour la barre de catégories */
 .categories-bar {
   background-color: #f8f9fa;
   padding: 1rem;
